@@ -8,12 +8,12 @@ import greenfoot.*;
  */
 public class Warrior extends ScrollActor
 {
-    private int posY=0,posY2=0,tamX=54/*de cada sprite*/,tamY=93;
+    private int posY=0,posY2=0,tamX=54/*de cada sprite*/,tamY=99;
     private int NUMSPR=9,cont=0,speed=8;
     private int vista=0;
     private GreenfootImage img;
     private GreenfootImage spr;
-    private String archivo = "CaminarDerecha.png";
+    private String archivo = "ArmorEarthRight.png";
 
     /**
      * Act - do whatever the Warrior wants to do. This method is called whenever
@@ -32,33 +32,14 @@ public class Warrior extends ScrollActor
          img = new GreenfootImage(archivo);
         GreenfootImage spr = new GreenfootImage(tamX,tamY);
         //si el contador es mayor a la velocidad de animacion se cambia a la imagen siguiente
-        if(vista==1)
-        {
-            tamY=93;
-            archivo = "CaminarIzquierda.png"; 
-
-        }
-        if(vista==0)
-        {
-            tamY=93;
-            archivo = "CaminarDerecha.png";
-
-        }            
-        if(vista==2)
-        {
-            tamY=99;        
-            archivo = "CaminarEnfrente.png";            
-
-        }
-            if(cont>=speed)//si contador supera speed se cambia la imagen de la animacion
+        revisaVista();
+        if(cont>=speed)//si contador supera speed se cambia la imagen de la animacion
         {
             
             if(posY > -(tamY*(NUMSPR-1)))
             posY -= tamY;
             else
             posY = 0;
-            if(cont!=speed&&vista==2)
-            cont=0;
             spr.drawImage(img,0,posY);
             setImage(spr);
             cont=0;
@@ -91,7 +72,8 @@ public class Warrior extends ScrollActor
         }
         if(Greenfoot.isKeyDown("Up"))
         {
-            
+            vista=3;
+            spriteNormal();
             setLocation(positionX,positionY-1);
         }
         if(Greenfoot.isKeyDown("Down"))
@@ -99,6 +81,28 @@ public class Warrior extends ScrollActor
             vista=2;
             spriteNormal();            
             setLocation(positionX,positionY+1);
+        }
+    }
+    public void revisaVista()
+    {
+        if(vista==1)
+        {
+            archivo = "ArmorEarthLeft.png"; 
+
+        }
+        if(vista==0)
+        {
+            archivo = "ArmorEarthRight.png";
+
+        }            
+        if(vista==2)
+        {
+            archivo = "ArmorEarthFront.png";            
+
+        }
+        if(vista==3)
+        {
+            archivo = "ArmorEarthBack.png";            
         }
     }
 }

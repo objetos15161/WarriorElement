@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class ElementWorld extends ScrollWorld
 {
-
+    private Warrior jugador;
     /**
      * Constructor for objects of class ElementWorld.
      * 
@@ -17,8 +17,9 @@ public class ElementWorld extends ScrollWorld
     public ElementWorld()
     {
         super(800,600,1,3720,600);
-        
-
+        jugador = new Warrior();
+        addObject(jugador,30,450);
+        addCameraFollower(jugador,30, 450);
 
 
     }
