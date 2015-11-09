@@ -13,7 +13,7 @@ public class Warrior extends ScrollActor
     private int vista=0;
     private GreenfootImage img;
     private GreenfootImage spr;
-    private String archivo = "ArmorEarthRight.png";
+    private String archivo = "Armadura/ArmorEarthRight.png";
 
     /**
      * Act - do whatever the Warrior wants to do. This method is called whenever
@@ -87,22 +87,22 @@ public class Warrior extends ScrollActor
     {
         if(vista==1)
         {
-            archivo = "ArmorEarthLeft.png"; 
+            archivo = "Armadura/" + "NoArmorLeft"+".png"; 
 
         }
         if(vista==0)
         {
-            archivo = "ArmorEarthRight.png";
+            archivo = "Armadura/NoArmorRight.png";
 
         }            
         if(vista==2)
         {
-            archivo = "ArmorEarthFront.png";            
+            archivo = "Armadura/NoArmorFront.png";            
 
         }
         if(vista==3)
         {
-            archivo = "ArmorEarthBack.png";            
+            archivo = "Armadura/NoArmorBack.png";            
         }
     }
 }
