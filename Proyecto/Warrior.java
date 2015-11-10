@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Warrior extends ScrollActor
+public class Warrior extends Actor
 {
     private int posY=0,posY2=0,tamX=54/*de cada sprite*/,tamY=99;
     private int NUMSPR=9,cont=0,speed=8;
