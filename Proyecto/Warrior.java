@@ -48,6 +48,17 @@ public class Warrior extends Actor
     }
     public void act() 
     {
+        int y=getY();
+        int x=getX();
+        if(y<360)
+        {
+           setLocation(x,360); 
+        }
+        if(y>510)
+        {
+            setLocation(x,510);
+        }
+        
         move();
 
     }    
