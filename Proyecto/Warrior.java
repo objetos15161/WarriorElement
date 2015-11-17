@@ -18,7 +18,7 @@ public class Warrior extends Actor
     private int direccion=0;
     private GreenfootImage img;
     private GreenfootImage sprite;
-    private String elemento="ArmorWater";
+    private String elemento="ArmorEarth";
     private String archivo = "Armadura/ArmorFireRight.png";
     /**
      * Constructor de clase Warrior, Jugador que se mueve en el mun
@@ -160,6 +160,7 @@ public class Warrior extends Actor
             spriteAtaque();
             setLocation(positionX,positionY);
         }
+        cont3=0;
     }
 
     /**
