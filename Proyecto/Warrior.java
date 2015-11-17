@@ -13,7 +13,7 @@ public class Warrior extends Actor
     private int vista=0;
     private GreenfootImage img;
     private GreenfootImage spr;
-    private String archivo = "Armadura/ArmorEarthRight.png";
+    private String archivo = "Armadura/NoArmorRight.png";
 
     /**
      * Act - do whatever the Warrior wants to do. This method is called whenever
@@ -98,22 +98,22 @@ public class Warrior extends Actor
     {
         if(vista==1)
         {
-            archivo = "Armadura/" + "NoArmorLeft"+".png"; 
+            archivo = "Armadura/" + "ArmorWaterLeft"+".png"; 
 
         }
         if(vista==0)
         {
-            archivo = "Armadura/NoArmorRight.png";
+            archivo = "Armadura/ArmorFireRight.png";
 
         }            
         if(vista==2)
         {
-            archivo = "Armadura/NoArmorFront.png";            
+            archivo = "Armadura/ArmorWindFront.png";            
 
         }
         if(vista==3)
         {
-            archivo = "Armadura/NoArmorBack.png";            
+            archivo = "Armadura/ArmorEarthBack.png";            
         }
     }
 }
