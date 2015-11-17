@@ -98,7 +98,7 @@ public class SWorld extends World
         actorMaxX=getWidth()/2+xRange/2;
         actorMinY=getHeight()/2-yRange/2;
         actorMaxY=getHeight()/2+yRange/2;
-        act();
+        //act();
     }
     
     /**
