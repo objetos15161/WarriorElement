@@ -5,7 +5,7 @@ import java.util.LinkedList;
  */
 public class ElementWorld extends SWorld
 {
-    private Boton jugar, ayuda, creditos, regresar;
+    private Boton jugar, ayuda, creditos, regresar,inventario;
     private Cursor cursor;
     private LinkedList <GreenfootImage> imagenes;
     private MouseInfo info;
@@ -26,21 +26,24 @@ public class ElementWorld extends SWorld
         imagenes.add(new GreenfootImage("00BotonAyuda.png"));   //4
         imagenes.add(new GreenfootImage("00BotonCreditos.png"));//5
         imagenes.add(new GreenfootImage("00BotonRegresar.png"));//6
-        imagenes.add(new GreenfootImage("Cursor.png"));       //7
+        imagenes.add(new GreenfootImage("Cursor.png"));         //7
+        imagenes.add(new GreenfootImage("HUD.png"));            //8
 
         jugar = new Boton(getImagen(3));
         ayuda = new Boton(getImagen(4));
         creditos = new Boton(getImagen(5));
         regresar = new Boton(getImagen(6));
         cursor = new Cursor(getImagen(7));
+        inventario = new Boton(getImagen(8));
         menu();
         
     }
     
      public void nivel1()
     {
-
-        addMainActor(new Warrior(), 30,450,250,300); 
+        
+        addMainActor(new Warrior(), 30,450,250,300);
+        addObject(inventario,95,47  ,false);
         GreenfootImage bg = new GreenfootImage("Bosque.png");
         setScrollingBackground(bg); 
     }

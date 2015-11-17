@@ -1,13 +1,20 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Warrior()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Warrior\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ \r\n
+comment0.text=\r\n\ Constructor\ de\ clase\ Warrior,\ Jugador\ que\ se\ mueve\ en\ el\ mun\r\n\ \r\n\ \r\n
 comment1.params=
 comment1.target=void\ spriteNormal()
+comment1.text=\r\n\ \r\n
 comment2.params=
-comment2.target=void\ act()
+comment2.target=void\ spriteAtaque()
+comment2.text=\r\n\ \r\n
 comment3.params=
-comment3.target=void\ move()
+comment3.target=void\ act()
+comment3.text=\r\n\ \r\n
 comment4.params=
-comment4.target=void\ revisaVista()
-numComments=5
+comment4.target=void\ move()
+comment4.text=\r\n\ \r\n
+comment5.params=elemento
+comment5.target=void\ revisaVista(java.lang.String)
+comment5.text=\r\n\ \r\n
+numComments=6
