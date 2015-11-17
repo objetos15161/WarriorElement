@@ -63,7 +63,7 @@ public class Warrior extends Actor
      */
     public void spriteAtaque()
     {
-        for(cont3=0;cont3<=160;cont3++)
+        for(cont3=0;cont3<=300;cont3++)
         {
             img = new GreenfootImage(archivo);
             GreenfootImage sprite = new GreenfootImage(attkX,attkY);
