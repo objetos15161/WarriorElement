@@ -18,8 +18,8 @@ public class Warrior extends Actor
     private int direccion=0;
     private GreenfootImage img;
     private GreenfootImage sprite;
-    private String elemento="ArmorEarth";
-    private String archivo = "Armadura/ArmorFireRight.png";
+    private String elemento="NoArmor";
+    private String archivo = "Armadura/NoArmorRight.png";
     /**
      * Constructor de clase Warrior, Jugador que se mueve en el mun
      * 
@@ -173,22 +173,22 @@ public class Warrior extends Actor
             attkX=75;
             attkY=82;
         }
-        if(elemento=="ArmorEarth")
+        if(elemento=="Earth")
         {
             attkX=68;
             attkY=95;
         }
-        if(elemento=="ArmorFire")
+        if(elemento=="Fire")
         {
             attkX=75;
             attkY=95;
         }
-        if(elemento=="ArmorWater")
+        if(elemento=="Water")
         {
             attkX=78;
             attkY=113;
         }
-        if(elemento=="ArmorWind")
+        if(elemento=="Wind")
         {
             attkX=65;
             attkY=111;
