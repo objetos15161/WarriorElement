@@ -219,5 +219,42 @@ public class Warrior extends Actor
         {
             archivo = "Armadura/"+elemento+"AttackLeft.png";            
         }
+        
+     }
+     
+     /**
+     * 
+     */
+    public void armaduraAgua()
+    {
+        elemento="ArmorWater";
+        
+    }
+    
+    /**
+     * 
+     */
+    public void armaduraTierra()
+    {
+        elemento="ArmorEarth";
+        
+    }
+    
+    /**
+     * 
+     */
+    public void armaduraViento()
+    {
+        elemento="ArmorWind";
+        
+    }
+    
+    /**
+     * 
+     */
+    public void armaduraFuego()
+    {
+        elemento="ArmorFire";
+        
     }
 }
