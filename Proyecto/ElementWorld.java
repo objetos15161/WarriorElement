@@ -5,11 +5,13 @@ import java.util.LinkedList;
  */
 public class ElementWorld extends SWorld
 {
-    private Boton jugar, ayuda, creditos, regresar,inventario,armAgua,armFuego,armTierra,armViento,barra;
+    private Boton jugar, ayuda, creditos, regresar,inventario,armAgua,armFuego,armTierra,armViento;
     private Cursor cursor;
     private LinkedList <GreenfootImage> imagenes;
     private MouseInfo info;
     private Warrior war= new Warrior();
+    private int numNivel=1;
+    private SimpleTimer time = new SimpleTimer();
 
     /**
      * Creates a scrolling world using a main actor, a background, some obstacles, and a non-scrolling score.
@@ -34,7 +36,8 @@ public class ElementWorld extends SWorld
         imagenes.add(new GreenfootImage("0tierra.png"));        //10
         imagenes.add(new GreenfootImage("0viento.png"));        //11
         imagenes.add(new GreenfootImage("0fuego.png"));         //12
-        imagenes.add(new GreenfootImage("0barraV.png"));         //13
+       
+        
         
         
         jugar = new Boton(getImagen(3));
@@ -43,13 +46,13 @@ public class ElementWorld extends SWorld
         regresar = new Boton(getImagen(6));
         cursor = new Cursor(getImagen(7));
         inventario = new Boton(getImagen(8));
-        barra= new Boton(getImagen(13));
+        
         
         armAgua = new Boton(getImagen(9));
         armTierra = new Boton(getImagen(10));
         armViento = new Boton(getImagen(11));
         armFuego = new Boton(getImagen(12));
-        
+                      
         menu();
         
     }
@@ -63,13 +66,56 @@ public class ElementWorld extends SWorld
         addObject(armTierra,145,70,false);
         addObject(armViento,180,70,false);
         addObject(armFuego,215,70,false);
-        addObject(barra,201,41,false);
+        
         GreenfootImage bg = new GreenfootImage("Bosque.png");
         setScrollingBackground(bg); 
+    }
+    
+    public void nivel2()
+    {
+        numNivel=2;
+        
+        GreenfootImage bg = new GreenfootImage("Montaña.png");
+        setScrollingBackground(bg);
+        
         
     }
-
     
+    public void nivel3()
+    {
+        int i;
+        int x=1250;
+        //setPaintOrder(Warrior.class);
+        
+        numNivel=3;
+        removeObjects(getObjects(Meteoro.class));
+        GreenfootImage bg = new GreenfootImage("Castillo.png");
+        setScrollingBackground(bg);              
+        
+        addObject(new Suelo()  , 250, 561);
+        addObject(new Suelo()  , 950, 561);
+        addObject(new Suelo()  , 1550,280);
+        addObject(new Suelo()  , 2270,280);
+        addObject(new Suelo()  , 2870,561);
+        addObject(new Suelo()  , 3470,561);
+                        
+        addObject(new PlataformaH() , 600, 530);
+        addObject(new PlataformaH() , 1960,250);
+        addObject(new PlataformaH() , 3150,530);
+        
+        for(i=0;i<14;i++)
+        {
+            addObject(new Pico(),x,585);
+            x=x+100;
+        }
+        
+        addObject(new Pico(),550,585);
+        addObject(new Pico(),650,585);
+        addObject(new Pico(),3170,585);         
+                     
+    }
+    
+        
     /**
      * Este método muestra la pantalla de Menú. Coloca
      * el fondo de pantalla, agregando los objetos necesarios
@@ -91,7 +137,90 @@ public class ElementWorld extends SWorld
         super.act();
         seleccionar();
         seleccionaArmadura();
+        setPaintOrder(Warrior.class);
+        if(numNivel==2)
+        {
+                     
+            if(time.millisElapsed()>20000)
+            {
+             createNewMeteoro();             
+             time.mark();
+            }
+            
+        }
+        
+        if(numNivel==3)
+        {
+                     
+            if(time.millisElapsed()>10000)
+            {
+             createNewPlataformas();
+             createNewEstacas();
+             time.mark();
+            }            
+            
+        }
     }
+    
+    private void createNewMeteoro()
+    {
+        Meteoro meteoro1, meteoro2, meteoro3;
+        
+        meteoro1 = new Meteoro();
+        meteoro2 = new Meteoro();
+        meteoro3 = new Meteoro();
+        
+        addObject(meteoro1 , 400, 10,false);
+        addObject(meteoro2 , 600, 10,false);
+        addObject(meteoro3 , 800, 10,false);
+    }
+    
+     private void createNewPlataformas()
+    {
+        PlataformaVD plataforma3;
+        PlataformaVU plataforma2;
+        
+        plataforma3 = new PlataformaVD();
+        plataforma2 = new PlataformaVU();        
+        
+        addObject(plataforma2 , 1250, 540);
+        addObject(plataforma3 , 2570, 20);
+        
+    }
+    
+    private void createNewEstacas()
+    {
+        int i;
+        int e1=800;
+        int e2=1400;
+        int e3=2100;
+        int e4=3320;
+        
+        for(i=0;i<2;i++)
+        {
+            addObject(new Estaca(),e1,0);
+            e1=e1+300;
+        }
+        
+        for(i=0;i<4;i++)
+        {
+            addObject(new Estaca(),e2,0);
+            e2=e2+100;
+        }
+        
+        for(i=0;i<4;i++)
+        {
+            addObject(new Estaca(),e3,0);
+            e3=e3+100;
+        }
+        
+        for(i=0;i<2;i++)
+        {
+            addObject(new Estaca(),e4,0);
+            e4=e4+300;
+        }
+    }
+    
 
     /**
      * Este método se encarga de controlar la
@@ -124,7 +253,7 @@ public class ElementWorld extends SWorld
         
     }
     
-     /**
+    /**
      * 
      */
     public void seleccionaArmadura()
@@ -148,6 +277,11 @@ public class ElementWorld extends SWorld
         {
           war.armaduraFuego();
         }
+    }
+    
+    public void disminuyeVida()
+    {
+        war.checkTouch();
     }
 
     /**
@@ -217,4 +351,6 @@ public class ElementWorld extends SWorld
         addObject(cursor, 0, 0);
         addObject(regresar, 714, 565);
     }
+    
+    
 }

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Obstaculo\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.params=
+comment1.target=void\ checkTouch()
+comment2.params=world
+comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n
+numComments=3

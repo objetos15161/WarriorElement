@@ -20,6 +20,9 @@ public class Warrior extends Actor
     private GreenfootImage sprite;
     private String elemento="NoArmor";
     private String archivo = "Armadura/NoArmorRight.png";
+    private ElementWorld w;
+    private int nivel=1;
+    private Vida vida; 
     /**
      * Constructor de clase Warrior, Jugador que se mueve en el mun
      * 
@@ -33,6 +36,21 @@ public class Warrior extends Actor
         sprite.drawImage(img,0,0);
         setImage(sprite);
         posX2=attkX*sprAt;
+
+        vida= new Vida();
+    }
+
+    /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
+    protected void addedToWorld(World world)
+    {
+        
+        w = (ElementWorld) world;
+        w.addObject(vida,201,41,false); 
+
     }
 
     /**
@@ -107,17 +125,84 @@ public class Warrior extends Actor
     {
         int y=getY();
         int x=getX();
-        if(y<360)
+        if(nivel==1)
         {
-            setLocation(x,360); 
+            if(y<360)
+            {
+                setLocation(x,360); 
+            }
+            if(y>510)
+            {
+                setLocation(x,510);
+            }
         }
-        if(y>510)
-        {
-            setLocation(x,510);
-        }
-        move();
-    }    
 
+        if(nivel==2)
+        {
+            if(y<490)
+            {
+                setLocation(x,490); 
+            }
+            if(y>560)
+            {
+                setLocation(x,560);
+            }
+        }
+
+        if(nivel==3)
+        {
+            
+            if(isTouching(Suelo.class))
+            {
+                if(y>280)
+                {
+                  setLocation(x,475); 
+                }
+                else
+                {
+                  setLocation(x,192);
+                }
+            }
+            else
+            {
+                if(isTouching(PlataformaH.class))
+               {
+                move(1);
+               }
+               else
+               {
+                   if(isTouching(PlataformaVD.class))
+                  {
+                    setLocation(x,y+1);
+                  }
+                  else
+                  {
+                      if(isTouching(PlataformaVU.class))
+                      {
+                       setLocation(x,y-1);
+                      }
+                      else
+                      {
+                          setLocation(x,y+2);
+                      }
+                                  
+                  }                  
+                  
+               }
+                
+            }
+                
+           
+               
+            }
+
+         move();
+         cambiaNivel();
+       
+
+        }
+
+        
     /**
      * 
      */
@@ -160,7 +245,6 @@ public class Warrior extends Actor
             spriteAtaque();
             setLocation(positionX,positionY);
         }
-        cont3=0;
     }
 
     /**
@@ -173,22 +257,22 @@ public class Warrior extends Actor
             attkX=75;
             attkY=82;
         }
-        if(elemento=="Earth")
+        if(elemento=="ArmorEarth")
         {
             attkX=68;
             attkY=95;
         }
-        if(elemento=="Fire")
+        if(elemento=="ArmorFire")
         {
             attkX=75;
             attkY=95;
         }
-        if(elemento=="Water")
+        if(elemento=="ArmorWater")
         {
             attkX=78;
             attkY=113;
         }
-        if(elemento=="Wind")
+        if(elemento=="ArmorWind")
         {
             attkX=65;
             attkY=111;
@@ -219,42 +303,67 @@ public class Warrior extends Actor
         {
             archivo = "Armadura/"+elemento+"AttackLeft.png";            
         }
-        
-     }
-     
-     /**
+    }
+
+    /**
      * 
      */
     public void armaduraAgua()
     {
         elemento="ArmorWater";
-        
     }
-    
+
     /**
      * 
      */
     public void armaduraTierra()
     {
         elemento="ArmorEarth";
-        
     }
-    
+
     /**
      * 
      */
     public void armaduraViento()
     {
         elemento="ArmorWind";
-        
     }
-    
+
     /**
      * 
      */
     public void armaduraFuego()
     {
         elemento="ArmorFire";
+    }
+
+    public void cambiaNivel()
+    {
+        int x=getX();
+        
+          if(isTouching(Portal.class)&& vista==3)
+          {
+             if(nivel==1)
+            {
+              setLocation(30,540);              
+              w.nivel2();
+              nivel++;             
+            }  
+            else            
+            if(nivel>1)
+             {
+              setLocation(30,475);
+              w.nivel3();
+              nivel=3;
+             }
+         }       
         
     }
+
+    public void checkTouch()
+    {     
+        vida.disminuyeVida();        
+    }
+
+
 }
