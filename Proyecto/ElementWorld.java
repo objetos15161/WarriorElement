@@ -10,7 +10,7 @@ public class ElementWorld extends SWorld
     private LinkedList <GreenfootImage> imagenes;
     private MouseInfo info;
     private Warrior war= new Warrior();
-    private int numNivel=1;
+    private int numNivel=0;
     private SimpleTimer time = new SimpleTimer();
 
     /**
@@ -59,13 +59,14 @@ public class ElementWorld extends SWorld
     
      public void nivel1()
     {
-        
+        numNivel=1;
         addMainActor(war, 30,450,250,300);
         addObject(inventario,170,60  ,false);
         addObject(armAgua,110,70,false);
         addObject(armTierra,145,70,false);
         addObject(armViento,180,70,false);
         addObject(armFuego,215,70,false);
+        addObject(new Hada(),750,450);
         
         GreenfootImage bg = new GreenfootImage("Bosque.png");
         setScrollingBackground(bg); 
@@ -85,7 +86,7 @@ public class ElementWorld extends SWorld
     {
         int i;
         int x=1250;
-        //setPaintOrder(Warrior.class);
+       
         
         numNivel=3;
         removeObjects(getObjects(Meteoro.class));
@@ -137,7 +138,7 @@ public class ElementWorld extends SWorld
         super.act();
         seleccionar();
         seleccionaArmadura();
-        setPaintOrder(Warrior.class);
+        
         if(numNivel==2)
         {
                      
@@ -160,6 +161,12 @@ public class ElementWorld extends SWorld
             }            
             
         }
+        
+        if(numNivel>0 && war.getY()<450)
+         setPaintOrder(Hada.class);
+         else
+         setPaintOrder(Warrior.class);
+        
     }
     
     private void createNewMeteoro()

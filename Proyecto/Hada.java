@@ -28,9 +28,28 @@ public class Hada extends Enemigo
     }
     public void act() 
     {
-        spriteAtacar(attkX,attkY,8);
+        if(isTouching(Warrior.class))
+        {
+          spriteAtacar(attkX,attkY,8);
+        }
+        else
+        {
+          spriteCaminar(tamX,tamY,7);
+        }
+        
+        checkLimit();
         
     }
+    
+    public void checkLimit()
+    {
+     int x=getX();
+     if(x<=50)
+     {
+         setLocation(750,450);
+     }
+    }
+    
     public void inicializaTam()
     {
         tamX[0]=57; 
