@@ -1,0 +1,39 @@
+GOLEM DE TIERRA
+
+Golem Tierra Caminar
+
+IMAGEN = 939 x 112
+
+75 x 110
+77 x 104
+71 x 99
+71 x 98
+70 x 98
+71 x 99
+75 x 108
+80 x 100
+93 x 109
+93 x 110
+84 x 110
+79 x 112
+
+Golem Tierra Atacar
+
+IMAGEN = 415 x 114
+
+74 x 109
+78 x 113
+78 x 114
+91 x 110
+94 x 108
+
+Golem Tierra Morir
+
+Imagen = 621 x 114
+
+87 x 114
+100 x 108
+100 x 96
+100 x 74
+114 x 74
+120 x 74

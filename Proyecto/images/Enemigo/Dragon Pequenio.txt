@@ -1,0 +1,44 @@
+Dragon Pequeño
+
+
+Dragon Caminar
+IMAGEN = 355 x 79
+
+36 x 65
+52 x 70
+55 x 62
+58 x 60
+41 x 79
+55 x 59
+58 x 57
+
+
+Dragon Ataque
+
+IMAGEN = 327 x 86
+
+43 x 68
+47 x 82
+48 x 84
+49 x 86
+69 x 46
+71 x 49
+
+
+Dragon muerte
+
+IMAGEN = 79 x 65
+
+36 x 65
+43 x 48
+
+Dragon Disparo
+
+IMAGEN 57 x 54
+
+Dragon Proyectil
+
+IMAGEN = 41 x 24
+
+17 x 16
+24 x 24

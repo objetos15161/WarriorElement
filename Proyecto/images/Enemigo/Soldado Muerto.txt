@@ -1,0 +1,33 @@
+Soldado Muerto
+
+Soldado Caminar 
+
+IMAGEN = 301 x 98
+
+41 x 98
+33 x 94
+33 x 86
+44 x 90
+42 x 91
+33 x 88
+32 x 88
+44 x 96
+
+
+Soldado Atacar
+
+IMAGEN = 540 x 121	
+
+55 x 120
+54 x 120
+52 x 121
+123 x 81
+124 x 81
+132 x 81
+
+Soldado Morir
+
+IMAGEN = 111 x 98
+
+51 x 98
+60 x 84

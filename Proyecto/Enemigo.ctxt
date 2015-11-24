@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=a\ e\ attk\ m
+comment0.target=Enemigo(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Enemigo\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=unataque
+comment2.target=void\ setataque(java.lang.String)
+comment3.params=tamX\ tamY\ numImg
+comment3.target=void\ spriteCaminar(int[],\ int[],\ int)
+comment4.params=attkX\ attkY\ numImg
+comment4.target=void\ spriteAtacar(int[],\ int[],\ int)
+comment5.params=killX\ killY\ numImg
+comment5.target=void\ spriteMorir(int[],\ int[],\ int)
+numComments=6

@@ -1,0 +1,35 @@
+	HADA AGUA CAMINAR
+
+
+57  x 95
+58  x 94
+59  x 75
+59  x 65 
+125 x 80
+104 x 92
+95  x 84
+68  x 94
+
+
+HADA AGUA ATTACAR
+
+	
+57  x 94
+60  x 79
+63  x 74
+65  x 75
+83  x 77
+95  x 88
+108 x 114
+110 x 114
+89  x 110
+
+HADA AGUA MUERTE
+
+57  x  94
+61  x  83
+58  x  94
+59  x  76
+63  x  64
+73  x  50 
+78  x  29
