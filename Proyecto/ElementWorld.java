@@ -222,7 +222,7 @@ public class ElementWorld extends SWorld
                             {
                                 if(contEnem==6)
                                 {
-                                   addObject(boss1,750,450,false);
+                                   //   addObject(boss1,750,450,false);
                                 }
                             }
                         }

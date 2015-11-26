@@ -51,25 +51,10 @@ public class Hada extends Enemigo
        }
        else
        {
-        setLocation(x+50,450);
+
         vida=-1;
         w.checkEnemigos();
-        spriteMorir(killX,killY,6);
-        if(t==1)
-        {
-         t=2;
-         time.mark();
-        }
-         else
-        {
-            
-             if(t==2 && time.millisElapsed()>2000)
-         {
-          
-          w.removeObject(this);
-         }
-        }      
-                       
+        w.removeObject(this);              
       }
     }
     
@@ -85,6 +70,7 @@ public class Hada extends Enemigo
      public void disminuyeVida()
     {
       vida--;
+     
     }
     
     
