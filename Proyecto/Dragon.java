@@ -15,7 +15,7 @@ public class Dragon extends Enemigo
     private int[] killX = new int[2];
     private int[] killY = new int[2];
     
-    private int vida=50;
+    private int vida=10;
     private ElementWorld w;
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
@@ -36,7 +36,7 @@ public class Dragon extends Enemigo
         if(isTouching(Warrior.class))
         {
           spriteAtacar(attkX,attkY,5);
-          w.disminuyeVida(1);
+          w.disminuyeVida(3);
         }
         else
          {
@@ -47,34 +47,22 @@ public class Dragon extends Enemigo
        }
        else
        {
-        //w.checkEnemigos();
-        spriteMorir(killX,killY,1);
-        if(t==1)
-        {
-         t=2;
-         time.mark();
-        }
-         else
-        {
-            
-             if(t==2 && time.millisElapsed()>2000)
-         {
-          
-          w.removeObject(this);
-         }
-        }      
+        vida=-1;
+        w.checkEnemigos();
+        w.removeObject(this);
+         
                        
       }
     } 
     
-    public void checkLimit()
+    /*public void checkLimit()
     {
      int x=getX();
      if(x<=50)
      {
          setLocation(750,450);
      }
-    }
+    }*/
     
     public void disminuyeVida()
     {

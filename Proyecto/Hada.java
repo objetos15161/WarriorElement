@@ -58,14 +58,16 @@ public class Hada extends Enemigo
       }
     }
     
-    public void checkLimit()
+    /*public void checkLimit()
     {
      int x=getX();
      if(x<=50)
      {
          setLocation(750,450);
      }
-    }
+    }*/
+    
+   
     
      public void disminuyeVida()
     {

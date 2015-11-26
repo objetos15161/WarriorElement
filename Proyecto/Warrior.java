@@ -245,9 +245,9 @@ public class Warrior extends Actor
             spriteAtaque();
             setLocation(positionX,positionY);
             tryToKill();
-            if(isTouching(Thanatos.class) && vista==4 && direccion==0 && (elemento=="ArmorEarth" || elemento=="ArmorFire")) 
+            if(isTouching(Thanatos.class) && vista==4 && direccion==0 ) 
             {
-              if(elemento== "ArmorEarth")
+              if(elemento == "ArmorEarth")
               {
                 w.disminuyeVidaEnemigo(2);
                 vista=0;
@@ -435,16 +435,23 @@ public class Warrior extends Actor
     
         public void tryToKill()
     {
-    if(canSee(Hada.class))
+      if(nivel==1)
+      {
+            
+        if(canSee(Hada.class))
         {
             ElementWorld mundo = (ElementWorld)getWorld();
             Hada h = mundo.dimeHada();
-            h.disminuyeVida();
-            //mundo.actualizaVidas();
-            /*kill(Frog.class);
-            Greenfoot.stop();
-            */
+            h.disminuyeVida();            
         }
+        
+        if(canSee(Dragon.class))
+        {
+            ElementWorld mundo = (ElementWorld)getWorld();
+            Dragon d = mundo.dimeDragon();
+            d.disminuyeVida();            
+        }      
+      }
     }
 
 }

@@ -20,6 +20,8 @@ public class VidaBoss extends Actor
     /** color of this life */
     private Color color = Color.BLACK;
     
+    private ElementWorld w;
+    
     /**
      * No argument constructor 
      */
@@ -79,11 +81,17 @@ public class VidaBoss extends Actor
              width=width-4;
              updateImage();
             }
+            
             if(tipo==4 && color == Color.BLUE)
             {
              coordenada();
              width=width-4;
              updateImage();
+            }
+            
+            if(width <= 12)
+            {
+                w.removeObject(this);
             }
            
            
@@ -97,7 +105,7 @@ public class VidaBoss extends Actor
     
     public void checkTime()
     {
-        if(time.millisElapsed()>5000 &&  color == Color.BLACK)
+        if(time.millisElapsed()>20000 &&  color == Color.BLACK)
         {
             color=Color.BLUE;
             updateImage();
@@ -111,6 +119,26 @@ public class VidaBoss extends Actor
             time.mark();
         }
     
+    }
+    
+    public Color dimeElemento()
+    {
+        return color;
+    }
+    
+    public int dimeVida()
+    {
+        return width;
+    }
+    
+    /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
+    protected void addedToWorld(World world)
+    {
+      w = (ElementWorld) world;        
     }
     
     

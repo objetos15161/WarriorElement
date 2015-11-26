@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 
 /**
  * Write a description of class Thanatos here.
@@ -19,7 +20,7 @@ public class Thanatos extends Enemigo
     private VidaBoss vida;
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
-    private int prueba=50;
+    
     /**
      * Act - do whatever the Thanatos wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -49,12 +50,22 @@ public class Thanatos extends Enemigo
     
     public void act() 
     {
-       if(prueba>0)
+       Color color=vida.dimeElemento();
+       int v=vida.dimeVida();
+       if(v>=12)
         {
         if(isTouching(Warrior.class))
         {
           spriteAtacar(attkX,attkY,6);
-          w.disminuyeVida(2);
+          if(color == Color.BLACK)
+          {
+            w.disminuyeVida(1);
+          }
+          else
+          {
+            w.disminuyeVida(3);  
+          }
+        
         }
         else
          {
@@ -65,6 +76,8 @@ public class Thanatos extends Enemigo
        }
        else
        {
+         setLocation(750,450);
+        //w.removeObject(this);
         //w.checkEnemigos();
         spriteMorir(killX,killY,4);
         if(t==1)
@@ -75,10 +88,11 @@ public class Thanatos extends Enemigo
          else
         {
             
-             if(t==2 && time.millisElapsed()>2000)
-         {
-          
+             if(t==2 && time.millisElapsed()>400)
+         {          
           w.removeObject(this);
+          w.removeEstado();
+          w.abrePortal();
          }
         }      
                        

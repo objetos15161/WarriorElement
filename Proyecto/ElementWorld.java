@@ -75,7 +75,7 @@ public class ElementWorld extends SWorld
         addObject(armViento,180,70,false);
         addObject(armFuego,215,70,false);
        
-        addObject(h,750,450);
+        addObject(h,750,450,false);
 
         GreenfootImage bg = new GreenfootImage("Bosque.png");
         setScrollingBackground(bg); 
@@ -83,12 +83,12 @@ public class ElementWorld extends SWorld
 
     public void disminuyeVidaEnemigo(int tipo)
     {
-        
-            boss1.disminuyeVida(tipo);
+       boss1.disminuyeVida(tipo);
     }
 
     public void nivel2()
     {
+        
         numNivel=2;
 
         GreenfootImage bg = new GreenfootImage("Montaña.png");
@@ -182,47 +182,50 @@ public class ElementWorld extends SWorld
 
     public void checkEnemigos()
     {
+        h=new Hada();
+        d=new Dragon();
+        
         
         if(numNivel==1)
         {
             if(contEnem==1)
             {
-                //addObject(d,1240,450);
+                addObject(d,1240,450);
                 contEnem=2;
             }
             else 
             {
                 if(contEnem==2)
                 {
-                    //addObject(h,2480,450); 
+                    addObject(h,1860,450); 
                     contEnem=3;
                 }
                 else
                 {
                     if(contEnem==3)
                     {
-                        //addObject(d,2480,450); 
+                        addObject(d,2480,450); 
                         contEnem=4;
                     }
                     else
                     {
                         if(contEnem==4)
                         {
-                            //addObject(h,3700,450);
+                            addObject(h,3100,450);
                             contEnem=5;
                         }
                         else
                         {
                             if(contEnem==5)
                             {
-                              //addObject(d,3700,450);  
+                              addObject(d,3700,450);  
                               contEnem=6;
                             }
                             else
                             {
                                 if(contEnem==6)
                                 {
-                                   //   addObject(boss1,750,450,false);
+                                      addObject(boss1,750,450,false);
                                 }
                             }
                         }
@@ -425,8 +428,30 @@ public class ElementWorld extends SWorld
     {
         addObject(vidaBoss,640,65,false);
     }
+    
+    public void removeEstado()
+    {
+        removeObject(vidaBoss);
+    }
+    
+    public void abrePortal()
+    {
+        addObject(new Portal(),3700,400);
+    }
+    
     public Hada dimeHada()
     {
         return (h);
+    }
+    
+     public Dragon dimeDragon()
+    {
+        return (d);
+    }
+    
+    public int coordenadasWarrior()
+    {
+        int coordY=war.getY();
+        return(coordY);
     }
 }
