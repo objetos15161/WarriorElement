@@ -13,10 +13,10 @@ public class Hada extends Enemigo
     private int[] tamY = new int[8];
     private int[] attkX = new int[9];
     private int[] attkY = new int[9];
-    private int[] killX = new int[8];
-    private int[] killY = new int[8];
+    private int[] killX = new int[7];
+    private int[] killY = new int[7];
     
-    private int vida=50;
+    private int vida=10;
     private ElementWorld w;
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
@@ -34,6 +34,7 @@ public class Hada extends Enemigo
     
     public void act() 
     {
+        int x=getX();
        if(vida>0)
         {
         if(isTouching(Warrior.class))
@@ -50,8 +51,10 @@ public class Hada extends Enemigo
        }
        else
        {
-        //w.checkEnemigos();
-        spriteMorir(killX,killY,7);
+        setLocation(x+50,450);
+        vida=-1;
+        w.checkEnemigos();
+        spriteMorir(killX,killY,6);
         if(t==1)
         {
          t=2;

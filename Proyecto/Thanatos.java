@@ -53,8 +53,8 @@ public class Thanatos extends Enemigo
         {
         if(isTouching(Warrior.class))
         {
-          spriteAtacar(attkX,attkY,8);
-          w.disminuyeVida(1);
+          spriteAtacar(attkX,attkY,6);
+          w.disminuyeVida(2);
         }
         else
          {
@@ -66,7 +66,7 @@ public class Thanatos extends Enemigo
        else
        {
         //w.checkEnemigos();
-        spriteMorir(killX,killY,7);
+        spriteMorir(killX,killY,4);
         if(t==1)
         {
          t=2;
@@ -92,6 +92,11 @@ public class Thanatos extends Enemigo
      {
          setLocation(750,450);
      }
+    }
+    
+    public void disminuyeVida(int tipo)
+    {
+        vida.disminuyeVida(tipo);
     }
    
        public void inicializaTam()

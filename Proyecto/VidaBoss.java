@@ -8,6 +8,7 @@ import java.awt.Color;
  */
 public class VidaBoss extends Actor
 {
+    private SimpleTimer time=new SimpleTimer();
     
     /** Width of the life */
     private int width = 212;
@@ -17,7 +18,7 @@ public class VidaBoss extends Actor
     
       
     /** color of this life */
-    private Color color = Color.BLUE;
+    private Color color = Color.BLACK;
     
     /**
      * No argument constructor 
@@ -50,7 +51,7 @@ public class VidaBoss extends Actor
      */
     public void act() 
     {
-        //disminuyeVida();
+        checkTime();
     } 
     
     /**
@@ -70,12 +71,20 @@ public class VidaBoss extends Actor
     /*
      * Cambia el tama?o de barra de vida 
      */
-    public void disminuyeVida()
+    public void disminuyeVida(int tipo)
     {
-            
-            coordenada();
-            width=width-10;
-            updateImage();
+            if(tipo==2 && color == Color.BLACK)
+            {
+             coordenada();
+             width=width-4;
+             updateImage();
+            }
+            if(tipo==4 && color == Color.BLUE)
+            {
+             coordenada();
+             width=width-4;
+             updateImage();
+            }
            
            
                      
@@ -83,7 +92,25 @@ public class VidaBoss extends Actor
      
      public void coordenada()
     {
-        move(5);
+        move(2);
+    }
+    
+    public void checkTime()
+    {
+        if(time.millisElapsed()>5000 &&  color == Color.BLACK)
+        {
+            color=Color.BLUE;
+            updateImage();
+            time.mark();
+        }
+        
+        if(time.millisElapsed()>5000 &&  color == Color.BLUE)
+        {
+            color=Color.BLACK;
+            updateImage();
+            time.mark();
+        }
+    
     }
     
     

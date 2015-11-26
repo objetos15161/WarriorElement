@@ -87,7 +87,7 @@ public class Vida extends Actor
     {
             
             coordenada();
-            width=width-10;
+            width=width-2;
             updateImage();
            
            
@@ -96,7 +96,7 @@ public class Vida extends Actor
      
      public void coordenada()
     {
-        move(-5);
+        move(-1);
     }
     
     }
