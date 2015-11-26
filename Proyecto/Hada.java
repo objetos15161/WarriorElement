@@ -15,6 +15,11 @@ public class Hada extends Enemigo
     private int[] attkY = new int[9];
     private int[] killX = new int[8];
     private int[] killY = new int[8];
+    
+    private int vida=50;
+    private ElementWorld w;
+    private SimpleTimer time = new SimpleTimer();
+    private int t=1;
     /**
      * Act - do whatever the Hada wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,19 +31,43 @@ public class Hada extends Enemigo
         inicializaTam();
 
     }
+    
     public void act() 
     {
+       if(vida>0)
+        {
         if(isTouching(Warrior.class))
         {
           spriteAtacar(attkX,attkY,8);
+          w.disminuyeVida(1);
         }
         else
-        {
+         {
           spriteCaminar(tamX,tamY,7);
+          checkLimit();
+         }        
+        
+       }
+       else
+       {
+        //w.checkEnemigos();
+        spriteMorir(killX,killY,7);
+        if(t==1)
+        {
+         t=2;
+         time.mark();
         }
-        
-        checkLimit();
-        
+         else
+        {
+            
+             if(t==2 && time.millisElapsed()>2000)
+         {
+          
+          w.removeObject(this);
+         }
+        }      
+                       
+      }
     }
     
     public void checkLimit()
@@ -49,6 +78,12 @@ public class Hada extends Enemigo
          setLocation(750,450);
      }
     }
+    
+     public void disminuyeVida()
+    {
+      vida--;
+    }
+    
     
     public void inicializaTam()
     {
@@ -108,4 +143,15 @@ public class Hada extends Enemigo
         
         
     }
+    
+    /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
+    protected void addedToWorld(World world)
+    {
+      w = (ElementWorld) world;        
+    }
+    
 }

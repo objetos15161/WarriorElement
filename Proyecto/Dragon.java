@@ -14,6 +14,11 @@ public class Dragon extends Enemigo
     private int[] attkY = new int[6];
     private int[] killX = new int[2];
     private int[] killY = new int[2];
+    
+    private int vida=50;
+    private ElementWorld w;
+    private SimpleTimer time = new SimpleTimer();
+    private int t=1;
     /**
      * Act - do whatever the Dragon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,8 +31,56 @@ public class Dragon extends Enemigo
     }
     public void act() 
     {
-        spriteCaminar(tamX,tamY,7);
+         if(vida>0)
+        {
+        if(isTouching(Warrior.class))
+        {
+          spriteAtacar(attkX,attkY,5);
+          w.disminuyeVida(1);
+        }
+        else
+         {
+          spriteCaminar(tamX,tamY,6);
+          checkLimit();
+         }        
+        
+       }
+       else
+       {
+        //w.checkEnemigos();
+        spriteMorir(killX,killY,1);
+        if(t==1)
+        {
+         t=2;
+         time.mark();
+        }
+         else
+        {
+            
+             if(t==2 && time.millisElapsed()>2000)
+         {
+          
+          w.removeObject(this);
+         }
+        }      
+                       
+      }
     } 
+    
+    public void checkLimit()
+    {
+     int x=getX();
+     if(x<=50)
+     {
+         setLocation(750,450);
+     }
+    }
+    
+    public void disminuyeVida()
+    {
+      vida--;
+    }
+    
         public void inicializaTam()
     {
         tamX[0]=36; 
@@ -68,4 +121,15 @@ public class Dragon extends Enemigo
         killY[1]=48; 
         
     }
+    
+    /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
+    protected void addedToWorld(World world)
+    {
+      w = (ElementWorld) world;        
+    }
+    
 }

@@ -1,17 +1,14 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
+import greenfoot.*;
 import java.awt.Color;
-
 /**
- * A paddle is a rectangular object that can be moved via the left
- * and right arrow keys.  
+ * Write a description of class VidaBoss here.
  * 
- * @author Barbara Ericson, Georgia Tech
- * @version 1.0 April 6, 2007
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Vida extends Actor
+public class VidaBoss extends Actor
 {
-    /////////////// fields ////////////////////
-  
+    
     /** Width of the life */
     private int width = 212;
   
@@ -20,18 +17,12 @@ public class Vida extends Actor
     
       
     /** color of this life */
-    private Color color = Color.RED;
+    private Color color = Color.BLUE;
     
-  
-    
- 
-    
-    ///////////// constructors ///////////////////////////
-  
     /**
      * No argument constructor 
      */
-    public Vida()
+    public VidaBoss()
     {
         updateImage();
     }
@@ -43,7 +34,7 @@ public class Vida extends Actor
      * @param theColor the color to use
      * @param theAmount the number of cells (pixels) to move
      */
-    public Vida(int theWidth, int theHeight, 
+    public VidaBoss(int theWidth, int theHeight, 
                   Color theColor)
     {
         width = theWidth;
@@ -52,19 +43,15 @@ public class Vida extends Actor
         updateImage();
     }
     
-    ///////////////////// Methods ///////////////////////////////
-
+    
     /**
-     * 
-     * 
+     * Act - do whatever the VidaBoss wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
-    { 
-         
-         if(width<10)
-         Greenfoot.stop();
-         
-    }
+    {
+        //disminuyeVida();
+    } 
     
     /**
      * Method to create and set the image for this paddle.  Invoke
@@ -80,7 +67,7 @@ public class Vida extends Actor
       
     }
     
-     /*
+    /*
      * Cambia el tama?o de barra de vida 
      */
     public void disminuyeVida()
@@ -96,11 +83,8 @@ public class Vida extends Actor
      
      public void coordenada()
     {
-        move(-5);
+        move(5);
     }
     
-    }
     
-   
-    
-
+}

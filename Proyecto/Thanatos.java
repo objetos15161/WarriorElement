@@ -14,6 +14,12 @@ public class Thanatos extends Enemigo
     private int[] attkY = new int[7];
     private int[] killX = new int[5];
     private int[] killY = new int[5];
+    
+    private ElementWorld w;
+    private VidaBoss vida;
+    private SimpleTimer time = new SimpleTimer();
+    private int t=1;
+    private int prueba=50;
     /**
      * Act - do whatever the Thanatos wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,13 +28,73 @@ public class Thanatos extends Enemigo
     {
         super("Enemigo/JefeCaminar0.png","Enemigo/JefeCaminar","Enemigo/JefeAtacar","Enemigo/JefeMorir");
         inicializaTam();
+        
+        vida=new VidaBoss();
 
     }
+    
+    /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
+    protected void addedToWorld(World world)
+    {
+        
+        w = (ElementWorld) world;
+        w.estadoBoss();
+        w.addObject(vida,606,43,false); 
+
+    }
+    
     public void act() 
     {
-        spriteCaminar(tamX,tamY,8);
+       if(prueba>0)
+        {
+        if(isTouching(Warrior.class))
+        {
+          spriteAtacar(attkX,attkY,8);
+          w.disminuyeVida(1);
+        }
+        else
+         {
+          spriteCaminar(tamX,tamY,7);
+          checkLimit();
+         }        
+        
+       }
+       else
+       {
+        //w.checkEnemigos();
+        spriteMorir(killX,killY,7);
+        if(t==1)
+        {
+         t=2;
+         time.mark();
+        }
+         else
+        {
+            
+             if(t==2 && time.millisElapsed()>2000)
+         {
+          
+          w.removeObject(this);
+         }
+        }      
+                       
+      }
     }
-    public void inicializaTam()
+    
+    public void checkLimit()
+    {
+     int x=getX();
+     if(x<=50)
+     {
+         setLocation(750,450);
+     }
+    }
+   
+       public void inicializaTam()
     {
         tamX[0]=70;         tamY[0]=121;
         tamX[1]=63;         tamY[1]=116;

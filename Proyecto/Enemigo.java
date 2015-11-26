@@ -120,4 +120,13 @@ public class Enemigo extends Actor
         cont2++;
             //cont++; 
     }
+    
+    /*public void checkLimit()
+    {
+     int x=getX();
+     if(x<=50)
+     {
+         setLocation(750,450);
+     }
+    }*/
 }

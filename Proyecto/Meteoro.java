@@ -28,7 +28,7 @@ public class Meteoro extends Obstaculo
         int y=getY();
         if (isTouching(Warrior.class))
         {                  
-             w.disminuyeVida();
+             w.disminuyeVida(4);
              w.removeObject(this);             
         } 
         else

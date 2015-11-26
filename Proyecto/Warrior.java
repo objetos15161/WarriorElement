@@ -244,6 +244,35 @@ public class Warrior extends Actor
             vista=4;
             spriteAtaque();
             setLocation(positionX,positionY);
+            
+            if(isTouching(Hada.class) && vista==4 && direccion==0 && elemento=="ArmorEarth" )
+            {
+              w.disminuyeVidaEnemigo(2);
+              vista=0;
+            }
+            /*else
+            if(isTouching(Araña.class) && vista==4 && direccion==0 && elemento="ArmorFire")
+            {
+              w.disminuyeVidaEnemigo();
+              vista=0;
+            }
+            else
+            if(isTouching() && vista==4 && direccion==0 && elemento="ArmorEarth")
+            {
+              w.disminuyeVidaEnemigo();
+              vista=0;
+            }
+            else
+            if(isTouching() && vista==4 && direccion==0 && elemento="ArmorWint")
+            {
+              w.disminuyeVidaEnemigo();
+              vista=0;
+            }
+            if(isTouching() && vista==4 && direccion==0 && elemento="ArmorWater")
+            {
+              w.disminuyeVidaEnemigo();
+              vista=0;
+            }*/
         }
     }
 
@@ -360,10 +389,34 @@ public class Warrior extends Actor
         
     }
 
-    public void checkTouch()
-    {     
-        vida.disminuyeVida();        
+    public void checkTouch(int tipo)
+    {
+        if(tipo==0)
+        {
+         vida.disminuyeVida();
+        }
+        
+        if(tipo==1 && elemento!="ArmorWater" && elemento!="ArmorEarth")
+        {
+         vida.disminuyeVida();
+        }
+        
+        if(tipo==2 && elemento!="ArmorEarth" && elemento!="ArmorWind")
+        {
+         vida.disminuyeVida();
+        }
+        
+        if(tipo==3 && elemento!="ArmorWind" && elemento!="ArmorFire")
+        {
+         vida.disminuyeVida();
+        }
+        
+        if(tipo==4 && elemento!="ArmorFire" && elemento!="ArmorWater")
+        {
+         vida.disminuyeVida();
+        }
     }
+
 
 
 }

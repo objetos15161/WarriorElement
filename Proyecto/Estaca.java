@@ -25,7 +25,7 @@ public class Estaca extends Obstaculo
     {
         if(isTouching(Warrior.class))
         {
-            w.disminuyeVida();
+            w.disminuyeVida(0);
             w.removeObject(this); 
         }
         else        

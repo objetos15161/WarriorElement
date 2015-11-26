@@ -23,7 +23,7 @@ public class Obstaculo extends Actor
         
         if (isTouching(Warrior.class))
         {                  
-             w.disminuyeVida();
+             w.disminuyeVida(0);
                         
         }      
     }
