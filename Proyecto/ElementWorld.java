@@ -12,7 +12,7 @@ public class ElementWorld extends SWorld
     private Warrior war= new Warrior(1);
     private int numNivel=0;
     private SimpleTimer time = new SimpleTimer();
-
+    private Flecha flecha;
     private Hada    h = new Hada();
     private Dragon  d = new Dragon();
     private Arania  a = new Arania();
@@ -616,7 +616,17 @@ public class ElementWorld extends SWorld
     {
         return (a);
     }
-
+    
+    public Soldado dimeSoldado()
+    {
+       return (s);
+    }
+    public void dibujaFlecha()
+    {
+        flecha = new Flecha();
+        addObject(flecha, war.getX(),war.getY(), false);
+    }
+    
     public int coordenadasWarrior()
     {
         int coordY=war.getY();

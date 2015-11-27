@@ -12,7 +12,7 @@ public class Warrior extends Actor
     private int tamX=54,tamY=99; /*Altura y Anchura del personaje*/
     private int posX=0,posX2; /*Imagen Actual en el sprite sheet cuando ataca*/
     private int attkX=75,attkY=82; /*Altura y Anchura del cuadro del personaje*/
-
+    private SimpleTimer time;
     private int numSpr=9,sprAt=8,cont=0,cont2=0,cont3,speed=8,speed2=9;
     private int vista=0;
     private int direccion=0;
@@ -30,7 +30,7 @@ public class Warrior extends Actor
      */
     public Warrior(int level)
     {
-
+        time = new SimpleTimer();
         img = new GreenfootImage(archivo);
         sprite = new GreenfootImage(tamX,tamY);
         sprite.drawImage(img,0,0);
@@ -246,6 +246,14 @@ public class Warrior extends Actor
             spriteAtaque();
             setLocation(positionX,positionY);
             tryToKill();
+            if(elemento == "ArmorWind")
+            {
+                if(time.millisElapsed()>1000)
+                {
+                    w.dibujaFlecha();
+                    time.mark();
+                }
+            }
             if(isTouching(Thanatos.class) && vista==4 && direccion==0 ) 
             {
               if(elemento == "ArmorEarth")
