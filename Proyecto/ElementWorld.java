@@ -9,17 +9,19 @@ public class ElementWorld extends SWorld
     private Cursor cursor;
     private LinkedList <GreenfootImage> imagenes;
     private MouseInfo info;
-    private Warrior war= new Warrior();
+    private Warrior war= new Warrior(1);
     private int numNivel=0;
     private SimpleTimer time = new SimpleTimer();
 
     
     private Hada    h = new Hada();
+    private Dragon  d = new Dragon();
     private Arania  a = new Arania();
     private Golem   g = new Golem();
-    private Dragon  d = new Dragon();
     private Soldado s = new Soldado();
     private Thanatos boss1 = new Thanatos();
+    private Titan boss2 = new Titan();
+    private GraveLord boss3 = new GraveLord();
     private int contEnem=1;
 
     /**
@@ -88,17 +90,29 @@ public class ElementWorld extends SWorld
 
     public void nivel2()
     {
-        
+        removeObjects(getObjects(Vida.class));
+        removeObject(war);
+        war=new Warrior(2);
         numNivel=2;
-
+        
+        addMainActor(war, 30,450,250,300);
+        
+        addObject(g,750,450,false);
         GreenfootImage bg = new GreenfootImage("Montaña.png");
         setScrollingBackground(bg);
+        
 
     }
     public void nivel3()
     {
+        removeObjects(getObjects(Vida.class));
+        removeObject(war);
+        war=new Warrior(3);
+        
         int i;
         int x=1250;
+        
+        addMainActor(war, 30,450,250,300);
 
         numNivel=3;
         removeObjects(getObjects(Meteoro.class));
@@ -174,7 +188,11 @@ public class ElementWorld extends SWorld
         }
 
         if(numNivel>0 && war.getY()<450)
+        {
             setPaintOrder(Hada.class);
+            setPaintOrder(Dragon.class);
+            setPaintOrder(Thanatos.class);
+        }
         else
             setPaintOrder(Warrior.class);
 
@@ -184,7 +202,11 @@ public class ElementWorld extends SWorld
     {
         h=new Hada();
         d=new Dragon();
+        a=new Arania();
+        g=new Golem();
+        s=new Soldado();
         
+        contEnem=6; //pruebasBoss
         
         if(numNivel==1)
         {
@@ -226,6 +248,7 @@ public class ElementWorld extends SWorld
                                 if(contEnem==6)
                                 {
                                       addObject(boss1,750,450,false);
+                                      contEnem=7;
                                 }
                             }
                         }
@@ -233,11 +256,107 @@ public class ElementWorld extends SWorld
 
                 }
             }          
-                       
-            
+        if(numNivel==2)
+        {
+                if(contEnem==7)
+            {
+                addObject(a,1240,450);
+                contEnem=8;
+            }
+            else 
+            {
+                if(contEnem==8)
+                {
+                    addObject(g,1860,450); 
+                    contEnem=9;
+                }
+                else
+                {
+                    if(contEnem==9)
+                    {
+                        addObject(a,2480,450); 
+                        contEnem=10;
+                    }
+                    else
+                    {
+                        if(contEnem==10)
+                        {
+                            addObject(g,3100,450);
+                            contEnem=11;
+                        }
+                        else
+                        {
+                            if(contEnem==11)
+                            {
+                              addObject(a,3700,450);  
+                              contEnem=12;
+                            }
+                            else
+                            {
+                                if(contEnem==12)
+                                {
+                                      addObject(boss2,750,450,false);
+                                      contEnem=13;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        
+        if(numNivel==3)
+        {
+                if(contEnem==13)
+            {
+                addObject(s,1240,450);
+                contEnem=14;
+            }
+            else 
+            {
+                if(contEnem==14)
+                {
+                    addObject(s,1860,450); 
+                    contEnem=15;
+                }
+                else
+                {
+                    if(contEnem==15)
+                    {
+                        addObject(s,2480,450); 
+                        contEnem=16;
+                    }
+                    else
+                    {
+                        if(contEnem==16)
+                        {
+                            addObject(s,3100,450);
+                            contEnem=17;
+                        }
+                        else
+                        {
+                            if(contEnem==17)
+                            {
+                              addObject(s,3700,450);  
+                              contEnem=18;
+                            }
+                            else
+                            {
+                                if(contEnem==18)
+                                {
+                                      addObject(boss2,750,450,false);
+                                      
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
         }
     }
-
+}
     private void createNewMeteoro()
     {
         Meteoro meteoro1, meteoro2, meteoro3;

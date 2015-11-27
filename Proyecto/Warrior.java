@@ -21,14 +21,14 @@ public class Warrior extends Actor
     private String elemento="NoArmor";
     private String archivo = "Armadura/NoArmorRight.png";
     private ElementWorld w;
-    private int nivel=1;
+    private int nivel;
     private Vida vida; 
     /**
      * Constructor de clase Warrior, Jugador que se mueve en el mun
      * 
      * 
      */
-    public Warrior()
+    public Warrior(int level)
     {
 
         img = new GreenfootImage(archivo);
@@ -36,6 +36,7 @@ public class Warrior extends Actor
         sprite.drawImage(img,0,0);
         setImage(sprite);
         posX2=attkX*sprAt;
+        nivel=level;
 
         vida= new Vida();
     }
@@ -383,15 +384,13 @@ public class Warrior extends Actor
           if(isTouching(Portal.class)&& vista==3)
           {
              if(nivel==1)
-            {
-              setLocation(30,540);              
+            {                        
               w.nivel2();
               nivel++;             
             }  
             else            
             if(nivel>1)
-             {
-              setLocation(30,475);
+             {              
               w.nivel3();
               nivel=3;
              }
@@ -438,19 +437,20 @@ public class Warrior extends Actor
       if(nivel==1)
       {
             
-        if(canSee(Hada.class))
+        if(canSee(Hada.class) && elemento=="ArmorEarth")
         {
             ElementWorld mundo = (ElementWorld)getWorld();
             Hada h = mundo.dimeHada();
             h.disminuyeVida();            
         }
         
-        if(canSee(Dragon.class))
+        if(canSee(Dragon.class) && elemento=="ArmorFire")
         {
             ElementWorld mundo = (ElementWorld)getWorld();
             Dragon d = mundo.dimeDragon();
             d.disminuyeVida();            
-        }      
+        }
+        
       }
     }
 

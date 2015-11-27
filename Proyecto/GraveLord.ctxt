@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GraveLord()
+comment1.params=world
+comment1.target=void\ addedToWorld(greenfoot.World)
+comment1.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ checkLimit()
+comment4.params=tipo
+comment4.target=void\ disminuyeVida(int)
+comment5.params=
+comment5.target=void\ inicializaTam()
+numComments=6

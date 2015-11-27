@@ -2,38 +2,37 @@ import greenfoot.*;
 import java.awt.Color;
 
 /**
- * Write a description of class Thanatos here.
+ * Write a description of class Titan here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Thanatos extends Enemigo
+public class Titan extends Enemigo
 {
-    private int[] tamX = new int[8];
-    private int[] tamY = new int[8];
-    private int[] attkX = new int[7];
-    private int[] attkY = new int[7];
-    private int[] killX = new int[5];
-    private int[] killY = new int[5];
+    private int[] tamX = new int[13];
+    private int[] tamY = new int[13];
+    private int[] attkX = new int[8];
+    private int[] attkY = new int[8];
+    private int[] killX = new int[9];
+    private int[] killY = new int[9];
     
     private ElementWorld w;
     private VidaBoss vida;
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
     
-    /**
-     * Act - do whatever the Thanatos wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public Thanatos()
+    public Titan()
     {
-        super("Enemigo/JefeCaminar0.png","Enemigo/JefeCaminar","Enemigo/JefeAtacar","Enemigo/JefeMorir");
+        super("Enemigo/JefeLavaCaminar0.png","Enemigo/JefeLavaCaminar","Enemigo/JefeLavaAtacar","Enemigo/JefeLavaMorir");
         inicializaTam();
         
         vida=new VidaBoss();
 
     }
-    
+    /**
+     * Act - do whatever the Titan wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     /**
      * Este método iguala la variable mundo a el World de juego.
      *
@@ -58,7 +57,7 @@ public class Thanatos extends Enemigo
         {
         if(isTouching(Warrior.class)&& yW>425 && yW<475)
         {
-          spriteAtacar(attkX,attkY,6);
+          spriteAtacar(attkX,attkY,12);
           if(color == Color.BLACK)
           {
             w.disminuyeVida(1);
@@ -97,7 +96,7 @@ public class Thanatos extends Enemigo
          }
         } 
         
-        spriteMorir(killX,killY,4);
+        spriteMorir(killX,killY,8);
                        
       }
     }
@@ -118,47 +117,49 @@ public class Thanatos extends Enemigo
    
        public void inicializaTam()
     {
-        tamX[0]=70;         tamY[0]=121;
-        tamX[1]=63;         tamY[1]=116;
-        tamX[2]=71;         tamY[2]=112;
-        tamX[3]=67;         tamY[3]=111;
-        tamX[4]=62;         tamY[4]=110;
-        tamX[5]=64;         tamY[5]=112;
-        tamX[6]=74;         tamY[6]=119;
-        tamX[7]=66;         tamY[7]=119;
+        tamX[0]=74;         tamY[0]=102;
+        tamX[1]=66;         tamY[1]=98;
+        tamX[2]=68;         tamY[2]=98;
+        tamX[3]=65;         tamY[3]=92;
+        tamX[4]=64;         tamY[4]=92;
+        tamX[5]=62;         tamY[5]=90;
+        tamX[6]=65;         tamY[6]=94;
+        tamX[7]=68;         tamY[7]=96;
+        tamX[8]=71;         tamY[8]=100;
+        tamX[9]=77;         tamY[9]=97;
+        tamX[10]=76;        tamY[10]=99;
+        tamX[11]=73;        tamY[11]=99;
+        tamX[12]=70;        tamY[12]=98;
+        
+        attkX[0]=74;         attkY[0]=98;
+        attkX[1]=66;         attkY[1]=102;
+        attkX[2]=65;         attkY[2]=107;
+        attkX[3]=64;         attkY[3]=109;
+        attkX[4]=61;         attkY[4]=98;
+        attkX[5]=61;         attkY[5]=94;
+        attkX[6]=61;         attkY[6]=98;
+        attkX[7]=61;         attkY[7]=99;        
 
-        attkX[0]=74; 
-        attkX[1]=68;
-        attkX[2]=66;
-        attkX[3]=179;
-        attkX[4]=177;
-        attkX[5]=169;
-        attkX[6]=153;
+
+        killX[0]=76;        killY[0]=109;
+        killX[1]=76;        killY[1]=115;
+        killX[2]=75;        killY[2]=110;
+        killX[3]=75;        killY[3]=101;
+        killX[4]=75;        killY[4]=92;
+        killX[5]=75;        killY[5]=87;
+        killX[6]=74;        killY[6]=77;
+        killX[7]=74;        killY[7]=66;
+        killX[8]=74;        killY[8]=66;
         
 
-        attkY[0]=127;
-        attkY[1]=128;
-        attkY[2]=128;
-        attkY[3]=144;
-        attkY[4]=143;
-        attkY[5]=124;
-        attkY[6]=124;
-        
-        killX[0]=112;
-        killX[1]=116;
-        killX[2]=108;
-        killX[3]=119;
-        killX[4]=119;
-        
-        
-        killY[0]=123;
-        killY[1]=120;
-        killY[2]=101;
-        killY[3]=89;
-        killY[4]=69;
+
+
+
+
         
         
         
         
     }
+    
 }

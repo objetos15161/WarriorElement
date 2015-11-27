@@ -50,7 +50,7 @@ public class SWorld extends World
     public SWorld(int wide, int high, int cellSize, int scrollWide, int scrollHigh)
     {
         super(cellSize==1?wide:(wide/2)*2+1, cellSize==1?high:(high/2)*2+1, cellSize, false);
-        //super(cellSize==1?wide:(wide/2)*2+1, cellSize==1?high:(high/2)*2+1, cellSize, false);
+        //  super(cellSize==1?wide:(wide/2)*2+1, cellSize==1?high:(high/2)*2+1, cellSize, false);
         scrollType=(scrollWide>wide?1:0)+(scrollHigh>high?2:0);
         scrollingWidth=scrollType%2==1?scrollWide:wide;
         scrollingHeight=scrollType/2==1?scrollHigh:high;

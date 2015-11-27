@@ -14,4 +14,6 @@ comment5.params=killX\ killY\ numImg
 comment5.target=void\ spriteMorir(int[],\ int[],\ int)
 comment6.params=
 comment6.target=void\ checkLimit()
-numComments=7
+comment7.params=
+comment7.target=void\ reiniciaContador()
+numComments=8

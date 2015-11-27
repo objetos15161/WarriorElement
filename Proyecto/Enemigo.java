@@ -129,4 +129,10 @@ public class Enemigo extends Actor
          setLocation(750,450);
      }
     }
+    
+    public void reiniciaContador()
+    {
+        
+        cont=0;
+    }
 }

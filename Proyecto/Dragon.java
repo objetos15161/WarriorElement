@@ -31,9 +31,11 @@ public class Dragon extends Enemigo
     }
     public void act() 
     {
+        int x=getX();
+        int yW=w.coordenadasWarrior();
          if(vida>0)
         {
-        if(isTouching(Warrior.class))
+        if(isTouching(Warrior.class) && yW>425 && yW<475)
         {
           spriteAtacar(attkX,attkY,5);
           w.disminuyeVida(3);

@@ -35,9 +35,10 @@ public class Hada extends Enemigo
     public void act() 
     {
         int x=getX();
+        int yW=w.coordenadasWarrior();
        if(vida>0)
         {
-        if(isTouching(Warrior.class))
+        if(isTouching(Warrior.class) && yW>425 && yW<475)
         {
           spriteAtacar(attkX,attkY,8);
           w.disminuyeVida(1);
