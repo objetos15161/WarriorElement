@@ -81,7 +81,7 @@ public class Enemigo extends Actor
         GreenfootImage sprite = new GreenfootImage(attkX[cont],attkY[cont]);
         cadena=Integer.toString(cont);
         archivo=ataque+cadena+".png";
-        if(cont2>=speed)
+                if(cont2>=speed)
         {
             if(cont<numImg-1)//si el contador es mayor a la velocidad de animacion se cambia a la imagen siguiente
             {
@@ -121,12 +121,12 @@ public class Enemigo extends Actor
             //cont++; 
     }
     
-    public void checkLimit()
+    public void checkLimit( int y)
     {
      int x=getX();
      if(x<=50)
      {
-         setLocation(750,450);
+         setLocation(750,y);
      }
     }
     

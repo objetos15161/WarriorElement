@@ -14,6 +14,11 @@ public class Arania extends Enemigo
     private int[] attkY = new int[3];
     private int[] killX = new int[4];
     private int[] killY = new int[4];
+    
+    private int vida=20;
+    private ElementWorld w;
+    private SimpleTimer time = new SimpleTimer();
+    private int t=1;
     /**
      * Act - do whatever the Arania wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,8 +31,37 @@ public class Arania extends Enemigo
     }
     public void act() 
     {
-        spriteCaminar(tamX,tamY,3);
-    }   
+       int x=getX();
+      int yW=w.coordenadasWarrior();
+       if(vida>0)
+        {
+        if(isTouching(Warrior.class) && yW>500 && yW<550)
+        {
+          spriteAtacar(attkX,attkY,2);
+          w.disminuyeVida(4);
+        }
+        else
+         {
+          spriteCaminar(tamX,tamY,2);
+          checkLimit(525);
+         }        
+        
+       }
+       else
+       {
+
+        vida=-1;
+        w.checkEnemigos();
+        w.removeObject(this);              
+      }
+    }
+    
+    public void disminuyeVida()
+    {
+      vida--;
+     
+    }
+    
     public void inicializaTam()
     {
         tamX[0]=74; 

@@ -452,6 +452,23 @@ public class Warrior extends Actor
         }
         
       }
+      
+      if(nivel==2)
+      {
+          if(canSee(Golem.class) && elemento=="ArmorWind")
+        {
+            ElementWorld mundo = (ElementWorld)getWorld();
+            Golem g = mundo.dimeGolem();
+            g.disminuyeVida();            
+        }
+        
+        if(canSee(Arania.class) && elemento=="ArmorWater")
+        {
+            ElementWorld mundo = (ElementWorld)getWorld();
+            Arania a = mundo.dimeArania();
+            a.disminuyeVida();            
+        }
+      }
     }
 
 }

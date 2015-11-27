@@ -95,9 +95,9 @@ public class ElementWorld extends SWorld
         war=new Warrior(2);
         numNivel=2;
         
-        addMainActor(war, 30,450,250,300);
+        addMainActor(war, 30,525,250,300);
         
-        addObject(g,750,450,false);
+        addObject(g,750,525,false);
         GreenfootImage bg = new GreenfootImage("Montaña.png");
         setScrollingBackground(bg);
         
@@ -186,15 +186,32 @@ public class ElementWorld extends SWorld
             }            
 
         }
-
-        if(numNivel>0 && war.getY()<450)
+        
+        if(numNivel==1)
         {
+           if(numNivel>0 && war.getY()<450)
+           {
             setPaintOrder(Hada.class);
             setPaintOrder(Dragon.class);
             setPaintOrder(Thanatos.class);
-        }
-        else
+           }
+           else
             setPaintOrder(Warrior.class);
+        }
+        
+        if(numNivel==1)
+        {
+           if(numNivel>0 && war.getY()<525)
+           {
+            setPaintOrder(Golem.class);
+            setPaintOrder(Arania.class);
+            setPaintOrder(Titan.class);
+           }
+           else
+            setPaintOrder(Warrior.class);
+        }
+        
+        
 
     }
 
@@ -255,7 +272,8 @@ public class ElementWorld extends SWorld
                     }
 
                 }
-            }          
+            }
+            
         if(numNivel==2)
         {
                 if(contEnem==7)
@@ -555,7 +573,15 @@ public class ElementWorld extends SWorld
     
     public void abrePortal()
     {
-        addObject(new Portal(),3700,400);
+        if(numNivel==1)
+        {
+         addObject(new Portal(),3600,330);
+        }
+        
+        if(numNivel==2)
+        {
+         addObject(new Portal(),3600,480);
+        }
     }
     
     public Hada dimeHada()
@@ -566,6 +592,16 @@ public class ElementWorld extends SWorld
      public Dragon dimeDragon()
     {
         return (d);
+    }
+    
+    public Golem dimeGolem()
+    {
+        return (g);
+    }
+    
+     public Arania dimeArania()
+    {
+        return (a);
     }
     
     public int coordenadasWarrior()

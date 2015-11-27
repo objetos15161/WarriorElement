@@ -46,7 +46,7 @@ public class Hada extends Enemigo
         else
          {
           spriteCaminar(tamX,tamY,7);
-          checkLimit();
+          checkLimit(450);
          }        
         
        }

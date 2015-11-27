@@ -14,6 +14,11 @@ public class Golem extends Enemigo
     private int[] attkY = new int[5];
     private int[] killX = new int[6];
     private int[] killY = new int[6];
+    
+    private int vida=20;
+    private ElementWorld w;
+    private SimpleTimer time = new SimpleTimer();
+    private int t=1;
     /**
      * Act - do whatever the Golem wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,8 +31,38 @@ public class Golem extends Enemigo
     }
     public void act() 
     {
-        spriteCaminar(tamX,tamY,12);
+      int x=getX();
+      int yW=w.coordenadasWarrior();
+       if(vida>0)
+        {
+        if(isTouching(Warrior.class) && yW>500 && yW<550)
+        {
+          reiniciaContador();
+          spriteAtacar(attkX,attkY,4);
+          w.disminuyeVida(2);
+        }
+        else
+         {
+          spriteCaminar(tamX,tamY,11);
+          checkLimit(525);
+         }        
+        
+       }
+       else
+       {
+
+        vida=-1;
+        w.checkEnemigos();
+        w.removeObject(this);              
+      }
     }
+    
+    public void disminuyeVida()
+    {
+      vida--;
+     
+    }
+    
     public void inicializaTam()
     {
         tamX[0]=75; 
@@ -86,5 +121,15 @@ public class Golem extends Enemigo
         
         
         
+    }
+    
+    /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
+    protected void addedToWorld(World world)
+    {
+      w = (ElementWorld) world;        
     }
 }

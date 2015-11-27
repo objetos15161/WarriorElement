@@ -43,7 +43,7 @@ public class Dragon extends Enemigo
         else
          {
           spriteCaminar(tamX,tamY,6);
-          checkLimit();
+          checkLimit(450);
          }        
         
        }
