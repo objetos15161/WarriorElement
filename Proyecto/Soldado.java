@@ -35,10 +35,10 @@ public class Soldado extends Enemigo
         int yW=w.coordenadasWarrior();
        if(vida>0)
         {
-        if(isTouching(Warrior.class) && yW>425 && yW<475)
+        if(isTouching(Warrior.class) && yW>=475 && yW<480)
         {
           spriteAtacar(attkX,attkY,8);
-          w.disminuyeVida(1);
+          w.disminuyeVida(0);
         }
         else
          {

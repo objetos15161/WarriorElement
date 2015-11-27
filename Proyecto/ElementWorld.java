@@ -79,6 +79,7 @@ public class ElementWorld extends SWorld
 
         GreenfootImage bg = new GreenfootImage("Bosque.png");
         setScrollingBackground(bg); 
+        nivel3();
         
     }
 
@@ -145,7 +146,11 @@ public class ElementWorld extends SWorld
 
         addObject(new Pico(),550,585);
         addObject(new Pico(),650,585);
-        addObject(new Pico(),3170,585);         
+        addObject(new Pico(),3170,585); 
+        
+        addObject(s,480,480,false);
+        
+        
 
     }
 
@@ -229,14 +234,14 @@ public class ElementWorld extends SWorld
         g=new Golem();
         s=new Soldado();
 
-        //contEnem=12; //pruebasBoss
+        contEnem=12; //pruebasBoss
 
         if(numNivel==1)
         {
             if(contEnem==1)
             {
                 addObject(d,1240,450);
-                contEnem=2;
+                contEnem=13;
             }
             else 
             {
@@ -338,42 +343,42 @@ public class ElementWorld extends SWorld
                     {
                         if(contEnem==13)
                         {
-                            addObject(s,1240,450);
+                            addObject(s,1000,480);
                             contEnem=14;
                         }
                         else 
                         {
                             if(contEnem==14)
                             {
-                                addObject(s,1860,450); 
+                                addObject(s,1860,480); 
                                 contEnem=15;
                             }
                             else
                             {
                                 if(contEnem==15)
                                 {
-                                    addObject(s,2480,450); 
+                                    addObject(s,1700,200); 
                                     contEnem=16;
                                 }
                                 else
                                 {
                                     if(contEnem==16)
                                     {
-                                        addObject(s,3100,450);
+                                        addObject(s,2400,200);
                                         contEnem=17;
                                     }
                                     else
                                     {
                                         if(contEnem==17)
                                         {
-                                            addObject(s,3700,450);  
+                                            addObject(s,3020,450);  
                                             contEnem=18;
                                         }
                                         else
                                         {
                                             if(contEnem==18)
                                             {
-                                                addObject(boss2,750,450,false);
+                                                addObject(boss3,3690,450,false);
 
                                             }
                                         }
