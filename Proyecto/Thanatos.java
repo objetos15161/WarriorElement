@@ -72,7 +72,7 @@ public class Thanatos extends Enemigo
         else
          {
           spriteCaminar(tamX,tamY,7);
-          checkLimit();
+          checkLimit(450);
          }        
         
        }
@@ -102,14 +102,14 @@ public class Thanatos extends Enemigo
       }
     }
     
-    public void checkLimit()
+    /*public void checkLimit()
     {
      int x=getX();
      if(x<=50)
      {
          setLocation(750,450);
      }
-    }
+    }*/
     
     public void disminuyeVida(int tipo)
     {

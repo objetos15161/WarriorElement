@@ -13,14 +13,13 @@ public class ElementWorld extends SWorld
     private int numNivel=0;
     private SimpleTimer time = new SimpleTimer();
 
-    
     private Hada    h = new Hada();
     private Dragon  d = new Dragon();
     private Arania  a = new Arania();
     private Golem   g = new Golem();
     private Soldado s = new Soldado();
     private Thanatos boss1 = new Thanatos();
-    private Titan boss2 = new Titan();
+    private Titan    boss2 = new Titan();
     private GraveLord boss3 = new GraveLord();
     private int contEnem=1;
 
@@ -49,7 +48,6 @@ public class ElementWorld extends SWorld
         imagenes.add(new GreenfootImage("0fuego.png"));         //12
         imagenes.add(new GreenfootImage("barraVidaJefe.png"));  //13
 
-        
         jugar = new Boton(getImagen(3));
         ayuda = new Boton(getImagen(4));
         creditos = new Boton(getImagen(5));
@@ -76,31 +74,40 @@ public class ElementWorld extends SWorld
         addObject(armTierra,145,70,false);
         addObject(armViento,180,70,false);
         addObject(armFuego,215,70,false);
-       
+
         addObject(h,750,450,false);
 
         GreenfootImage bg = new GreenfootImage("Bosque.png");
         setScrollingBackground(bg); 
+        
     }
 
     public void disminuyeVidaEnemigo(int tipo)
     {
-       boss1.disminuyeVida(tipo);
+        if(numNivel==1)
+        {
+          boss1.disminuyeVida(tipo);
+        } 
+        
+        if(numNivel==2)
+        {
+          boss2.disminuyeVida(tipo);
+        }
     }
 
     public void nivel2()
     {
         removeObjects(getObjects(Vida.class));
+        removeObjects(getObjects(Portal.class));
         removeObject(war);
         war=new Warrior(2);
         numNivel=2;
-        
+
         addMainActor(war, 30,525,250,300);
-        
+
         addObject(g,750,525,false);
         GreenfootImage bg = new GreenfootImage("Montaña.png");
         setScrollingBackground(bg);
-        
 
     }
     public void nivel3()
@@ -108,10 +115,10 @@ public class ElementWorld extends SWorld
         removeObjects(getObjects(Vida.class));
         removeObject(war);
         war=new Warrior(3);
-        
+
         int i;
         int x=1250;
-        
+
         addMainActor(war, 30,450,250,300);
 
         numNivel=3;
@@ -164,7 +171,7 @@ public class ElementWorld extends SWorld
         seleccionar();
         seleccionaArmadura();
 
-         if(numNivel==2)
+        if(numNivel==2)
         {
 
             if(time.millisElapsed()>20000)
@@ -186,32 +193,31 @@ public class ElementWorld extends SWorld
             }            
 
         }
-        
+
         if(numNivel==1)
         {
-           if(numNivel>0 && war.getY()<450)
-           {
-            setPaintOrder(Hada.class);
-            setPaintOrder(Dragon.class);
-            setPaintOrder(Thanatos.class);
-           }
-           else
-            setPaintOrder(Warrior.class);
+            if(numNivel>0 && war.getY()<450)
+            {
+                setPaintOrder(Hada.class);
+                setPaintOrder(Dragon.class);
+                setPaintOrder(Thanatos.class);
+            }
+            else
+                setPaintOrder(Warrior.class);
         }
-        
+
         if(numNivel==1)
         {
-           if(numNivel>0 && war.getY()<525)
-           {
-            setPaintOrder(Golem.class);
-            setPaintOrder(Arania.class);
-            setPaintOrder(Titan.class);
-           }
-           else
-            setPaintOrder(Warrior.class);
+            if(numNivel>0 && war.getY()<525)
+            {
+                setPaintOrder(Golem.class);
+                setPaintOrder(Arania.class);
+                setPaintOrder(Titan.class);
+            }
+            else
+                setPaintOrder(Warrior.class);
         }
-        
-        
+
 
     }
 
@@ -222,9 +228,9 @@ public class ElementWorld extends SWorld
         a=new Arania();
         g=new Golem();
         s=new Soldado();
-        
-        contEnem=6; //pruebasBoss
-        
+
+        //contEnem=12; //pruebasBoss
+
         if(numNivel==1)
         {
             if(contEnem==1)
@@ -257,15 +263,15 @@ public class ElementWorld extends SWorld
                         {
                             if(contEnem==5)
                             {
-                              addObject(d,3700,450);  
-                              contEnem=6;
+                                addObject(d,3700,450);  
+                                contEnem=6;
                             }
                             else
                             {
                                 if(contEnem==6)
                                 {
-                                      addObject(boss1,750,450,false);
-                                      contEnem=7;
+                                    addObject(boss1,750,450,false);
+                                    contEnem=7;
                                 }
                             }
                         }
@@ -273,108 +279,114 @@ public class ElementWorld extends SWorld
 
                 }
             }
-            
-        if(numNivel==2)
-        {
-                if(contEnem==7)
+                   
+        }
+        else
             {
-                addObject(a,1240,450);
-                contEnem=8;
-            }
-            else 
-            {
-                if(contEnem==8)
+                if(numNivel==2)
                 {
-                    addObject(g,1860,450); 
-                    contEnem=9;
-                }
-                else
-                {
-                    if(contEnem==9)
+                    if(contEnem==7)
                     {
-                        addObject(a,2480,450); 
-                        contEnem=10;
+                        addObject(a,1240,525);
+                        contEnem=8;
                     }
-                    else
+                    else 
                     {
-                        if(contEnem==10)
+                        if(contEnem==8)
                         {
-                            addObject(g,3100,450);
-                            contEnem=11;
+                            addObject(g,1860,525); 
+                            contEnem=9;
                         }
                         else
                         {
-                            if(contEnem==11)
+                            if(contEnem==9)
                             {
-                              addObject(a,3700,450);  
-                              contEnem=12;
+                                addObject(a,2480,525); 
+                                contEnem=10;
                             }
                             else
                             {
-                                if(contEnem==12)
+                                if(contEnem==10)
                                 {
-                                      addObject(boss2,750,450,false);
-                                      contEnem=13;
+                                    addObject(g,3100,525);
+                                    contEnem=11;
+                                }
+                                else
+                                {
+                                    if(contEnem==11)
+                                    {
+                                        addObject(a,3700,525);  
+                                        contEnem=12;
+                                    }
+                                    else
+                                    {
+                                        if(contEnem==12)
+                                        {
+                                            addObject(boss2,750,525,false);
+                                            contEnem=13;
+                                        }
+                                    }
                                 }
                             }
+
                         }
                     }
-
-                }
-            }
-        }
-        
-        if(numNivel==3)
-        {
-                if(contEnem==13)
-            {
-                addObject(s,1240,450);
-                contEnem=14;
-            }
-            else 
-            {
-                if(contEnem==14)
-                {
-                    addObject(s,1860,450); 
-                    contEnem=15;
                 }
                 else
                 {
-                    if(contEnem==15)
+                    if(numNivel==3)
                     {
-                        addObject(s,2480,450); 
-                        contEnem=16;
-                    }
-                    else
-                    {
-                        if(contEnem==16)
+                        if(contEnem==13)
                         {
-                            addObject(s,3100,450);
-                            contEnem=17;
+                            addObject(s,1240,450);
+                            contEnem=14;
                         }
-                        else
+                        else 
                         {
-                            if(contEnem==17)
+                            if(contEnem==14)
                             {
-                              addObject(s,3700,450);  
-                              contEnem=18;
+                                addObject(s,1860,450); 
+                                contEnem=15;
                             }
                             else
                             {
-                                if(contEnem==18)
+                                if(contEnem==15)
                                 {
-                                      addObject(boss2,750,450,false);
-                                      
+                                    addObject(s,2480,450); 
+                                    contEnem=16;
                                 }
+                                else
+                                {
+                                    if(contEnem==16)
+                                    {
+                                        addObject(s,3100,450);
+                                        contEnem=17;
+                                    }
+                                    else
+                                    {
+                                        if(contEnem==17)
+                                        {
+                                            addObject(s,3700,450);  
+                                            contEnem=18;
+                                        }
+                                        else
+                                        {
+                                            if(contEnem==18)
+                                            {
+                                                addObject(boss2,750,450,false);
+
+                                            }
+                                        }
+                                    }
+                                }
+
                             }
                         }
                     }
-
                 }
             }
-        }
     }
-}
+
     private void createNewMeteoro()
     {
         Meteoro meteoro1, meteoro2, meteoro3;
@@ -463,6 +475,7 @@ public class ElementWorld extends SWorld
         }
 
     }
+
     /**
      * 
      */
@@ -560,50 +573,50 @@ public class ElementWorld extends SWorld
         addObject(cursor, 0, 0);
         addObject(regresar, 714, 565);
     }
-    
+
     public void estadoBoss()
     {
         addObject(vidaBoss,640,65,false);
     }
-    
+
     public void removeEstado()
     {
         removeObject(vidaBoss);
     }
-    
+
     public void abrePortal()
     {
         if(numNivel==1)
         {
-         addObject(new Portal(),3600,330);
+            addObject(new Portal(),3600,330);
         }
-        
+
         if(numNivel==2)
         {
-         addObject(new Portal(),3600,480);
+            addObject(new Portal(),3600,440);
         }
     }
-    
+
     public Hada dimeHada()
     {
         return (h);
     }
-    
-     public Dragon dimeDragon()
+
+    public Dragon dimeDragon()
     {
         return (d);
     }
-    
+
     public Golem dimeGolem()
     {
         return (g);
     }
-    
-     public Arania dimeArania()
+
+    public Arania dimeArania()
     {
         return (a);
     }
-    
+
     public int coordenadasWarrior()
     {
         int coordY=war.getY();

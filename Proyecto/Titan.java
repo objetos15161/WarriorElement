@@ -55,29 +55,29 @@ public class Titan extends Enemigo
        int x=getX();
        if(v>=12)
         {
-        if(isTouching(Warrior.class)&& yW>425 && yW<475)
+        if(isTouching(Warrior.class)&& yW>500 && yW<550)
         {
-          spriteAtacar(attkX,attkY,12);
+          spriteAtacar(attkX,attkY,8);
           if(color == Color.BLACK)
           {
-            w.disminuyeVida(1);
+            w.disminuyeVida(4);
           }
           else
           {
-            w.disminuyeVida(3);  
+            w.disminuyeVida(2);  
           }
         
         }
         else
          {
-          spriteCaminar(tamX,tamY,7);
-          checkLimit();
+          spriteCaminar(tamX,tamY,12);
+          checkLimit(525);
          }        
         
        }
        else
        {
-        setLocation(x+50,450);
+        setLocation(x+50,525);
         
         if(t==1)
         {

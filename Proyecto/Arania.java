@@ -32,7 +32,7 @@ public class Arania extends Enemigo
     public void act() 
     {
        int x=getX();
-      int yW=w.coordenadasWarrior();
+       int yW=w.coordenadasWarrior();
        if(vida>0)
         {
         if(isTouching(Warrior.class) && yW>500 && yW<550)
@@ -93,5 +93,15 @@ public class Arania extends Enemigo
         killY[2]=52;
         killY[3]=53;
         
+    }
+    
+    /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
+    protected void addedToWorld(World world)
+    {
+      w = (ElementWorld) world;        
     }
 }

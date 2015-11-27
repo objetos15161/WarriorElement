@@ -261,13 +261,22 @@ public class Warrior extends Actor
               }
               
             }
-            /*else
-            if(isTouching(Arania.class) && vista==4 && direccion==0 && elemento="ArmorFire")
+            
+            if(isTouching(Titan.class) && vista==4 && direccion==0)  
             {
-              w.disminuyeVidaEnemigo();
-              vista=0;
+              if(elemento == "ArmorWater")
+              {
+                w.disminuyeVidaEnemigo(1);
+                vista=0;
+              }
+              
+              if(elemento== "ArmorWind")
+              {
+                w.disminuyeVidaEnemigo(3);
+                vista=0;
+              }
             }
-            else
+            /*else
             if(isTouching() && vista==4 && direccion==0 && elemento="ArmorEarth")
             {
               w.disminuyeVidaEnemigo();

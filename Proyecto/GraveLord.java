@@ -58,29 +58,29 @@ public class GraveLord extends Enemigo
        int x=getX();
        if(v>=12)
         {
-        if(isTouching(Warrior.class)&& yW>425 && yW<475)
+        if(isTouching(Warrior.class)&& yW>500 && yW<550)
         {
           spriteAtacar(attkX,attkY,6);
           if(color == Color.BLACK)
           {
-            w.disminuyeVida(1);
+            w.disminuyeVida(4);
           }
           else
           {
-            w.disminuyeVida(3);  
+            w.disminuyeVida(2);  
           }
         
         }
         else
          {
-          spriteCaminar(tamX,tamY,7);
-          checkLimit();
+          spriteCaminar(tamX,tamY,6);
+          checkLimit(525);
          }        
         
        }
        else
        {
-        setLocation(x+50,450);
+        setLocation(x+50,525);
         
         if(t==1)
         {
@@ -91,7 +91,7 @@ public class GraveLord extends Enemigo
          else
         {
             
-             if(t==2 && time.millisElapsed()>400)
+         if(t==2 && time.millisElapsed()>400)
          {          
           w.removeObject(this);
           w.removeEstado();
@@ -99,19 +99,19 @@ public class GraveLord extends Enemigo
          }
         } 
         
-        spriteMorir(killX,killY,4);
+        spriteMorir(killX,killY,6);
                        
       }
     }
     
-    public void checkLimit()
+    /*public void checkLimit()
     {
      int x=getX();
      if(x<=50)
      {
          setLocation(750,450);
      }
-    }
+    }*/
     
     public void disminuyeVida(int tipo)
     {

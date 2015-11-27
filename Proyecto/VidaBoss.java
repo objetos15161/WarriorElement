@@ -82,7 +82,21 @@ public class VidaBoss extends Actor
              updateImage();
             }
             
-            if(tipo==4 && color == Color.BLUE)
+            if(tipo==4 && color == Color.WHITE)
+            {
+             coordenada();
+             width=width-4;
+             updateImage();
+            }
+            
+            if(tipo==1 && color == Color.BLACK)
+            {
+             coordenada();
+             width=width-4;
+             updateImage();
+            }
+            
+            if(tipo==3 && color == Color.WHITE)
             {
              coordenada();
              width=width-4;
@@ -105,14 +119,14 @@ public class VidaBoss extends Actor
     
     public void checkTime()
     {
-        if(time.millisElapsed()>20000 &&  color == Color.BLACK)
+        if(time.millisElapsed()>5000 &&  color == Color.BLACK)
         {
-            color=Color.BLUE;
+            color=Color.WHITE;
             updateImage();
             time.mark();
         }
         
-        if(time.millisElapsed()>5000 &&  color == Color.BLUE)
+        if(time.millisElapsed()>5000 &&  color == Color.WHITE)
         {
             color=Color.BLACK;
             updateImage();
