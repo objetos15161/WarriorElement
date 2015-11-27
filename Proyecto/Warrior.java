@@ -486,6 +486,16 @@ public class Warrior extends Actor
             a.disminuyeVida();            
         }
       }
-    }
+      
+      if(nivel==3)
+      {
+          if(canSee(Soldado.class) )
+        {
+            ElementWorld mundo = (ElementWorld)getWorld();
+            Soldado s = mundo.dimeSoldado();
+            s.disminuyeVida();            
+        }
+     }
 
+}
 }
