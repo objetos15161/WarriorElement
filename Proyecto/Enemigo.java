@@ -23,7 +23,8 @@ public class Enemigo extends Actor
     private int cont=0 , speed = 9 ;/*Velociudad en la que se muestra hace cambio de sprite*/
     private int numSpr=8;//, numSpr2=9;/*Es en la imagen que se encuentra el sprite sheet*/
     private int cont2=1 ;//, speed2 = 7 ;/*Velocidad en la que se muestra el cambio de sprite para el ataque*/
-    //private int cont3;/*Contador para hacer automatico de un ataque*/
+    private int cont3=0;/*Contador para hacer automatico de un ataque*/
+    private int cont4=0;/*Contador de muerte de enemigo*/
     //private int vista ;/* direccion a la que apunta*/
     private String elemento; /* */
     private String ataque;
@@ -78,17 +79,17 @@ public class Enemigo extends Actor
     public void spriteAtacar(int attkX[],int attkY[],int numImg)
     {
         img = new GreenfootImage(archivo);
-        GreenfootImage sprite = new GreenfootImage(attkX[cont],attkY[cont]);
-        cadena=Integer.toString(cont);
+        GreenfootImage sprite = new GreenfootImage(attkX[cont3],attkY[cont3]);
+        cadena=Integer.toString(cont3);
         archivo=ataque+cadena+".png";
                 if(cont2>=speed)
         {
-            if(cont<numImg-1)//si el contador es mayor a la velocidad de animacion se cambia a la imagen siguiente
+            if(cont3<numImg-1)//si el contador es mayor a la velocidad de animacion se cambia a la imagen siguiente
             {
-                cont++;
+                cont3++;
             }
                 else
-                cont=0;
+                cont3=0;
             sprite.drawImage(img,0,0);
             setImage(sprite);
             cont2=0;
@@ -100,18 +101,18 @@ public class Enemigo extends Actor
     public void spriteMorir(int killX[],int killY[],int numImg)
     {
         img = new GreenfootImage(archivo);
-        GreenfootImage sprite = new GreenfootImage(killX[cont],killY[cont]);
-        cadena=Integer.toString(cont);
+        GreenfootImage sprite = new GreenfootImage(killX[cont4],killY[cont4]);
+        cadena=Integer.toString(cont4);
         archivo=morir+cadena+".png";
         if(cont2>=speed)
         {
-            if(cont<numImg-1)//si el contador es mayor a la velocidad de animacion se cambia a la imagen siguiente
+            if(cont4<numImg-1)//si el contador es mayor a la velocidad de animacion se cambia a la imagen siguiente
             {
-                cont++;
+                cont4++;
             }
                 else
                 
-                cont=0;
+                cont4=0;
             sprite.drawImage(img,0,0);
             setImage(sprite);
             cont2=0;
@@ -132,7 +133,6 @@ public class Enemigo extends Actor
     
     public void reiniciaContador()
     {
-        
         cont=0;
     }
 }

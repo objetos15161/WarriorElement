@@ -37,7 +37,7 @@ public class Golem extends Enemigo
         {
         if(isTouching(Warrior.class) && yW>500 && yW<550)
         {
-          reiniciaContador();
+          //reiniciaContador();
           spriteAtacar(attkX,attkY,4);
           w.disminuyeVida(2);
         }
