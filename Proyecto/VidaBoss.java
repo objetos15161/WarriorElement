@@ -103,6 +103,13 @@ public class VidaBoss extends Actor
              updateImage();
             }
             
+            if(tipo==0 && color == Color.WHITE)
+            {
+             coordenada();
+             width=width-4;
+             updateImage();
+            }
+            
             if(width <= 12)
             {
                 w.removeObject(this);

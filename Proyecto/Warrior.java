@@ -284,6 +284,13 @@ public class Warrior extends Actor
                 vista=0;
               }
             }
+            
+            if(isTouching(GraveLord.class) && vista==4 && direccion==0)  
+            {
+             
+                w.disminuyeVidaEnemigo(0);
+               
+            }
             /*else
             if(isTouching() && vista==4 && direccion==0 && elemento="ArmorEarth")
             {

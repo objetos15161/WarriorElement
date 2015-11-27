@@ -62,8 +62,32 @@ public class Vida extends Actor
     { 
          
          if(width<10)
-         Greenfoot.stop();
+         gameOver();
          
+    }
+    
+    public void gameOver()
+    {
+        createOver();
+        Greenfoot.stop();
+    }
+    
+    private void createOver()
+    {
+        GameOver newOver;
+        
+        newOver = new GameOver();
+        
+        ElementWorld world;
+        world = (ElementWorld)getWorld();
+        
+        int worldWidth = world.getWidth();
+        int worldHeight = world.getHeight();
+        
+        int x = worldWidth/2;
+        int y = worldHeight/2;
+        
+        world.addObject(newOver, x,y,false);
     }
     
     /**

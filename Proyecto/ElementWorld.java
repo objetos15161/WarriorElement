@@ -89,7 +89,8 @@ public class ElementWorld extends SWorld
 
         GreenfootImage bg = new GreenfootImage("Bosque.png");
         setScrollingBackground(bg); 
-        nivel3();
+        
+
         
     }
     
@@ -200,6 +201,7 @@ public class ElementWorld extends SWorld
         super.act();
         seleccionar();
         seleccionaArmadura();
+        //checkEnemigos();
         if(numNivel==1)
         {
             if(numNivel>0 && war.getY()<450)
@@ -260,14 +262,14 @@ public class ElementWorld extends SWorld
         g=new Golem();
         s=new Soldado();
 
-        contEnem=12; //pruebasBoss
+        contEnem=18; 
 
         if(numNivel==1)
         {
             if(contEnem==1)
             {
                 addObject(d,1240,450);
-                contEnem=13;
+                contEnem=2;
             }
             else 
             {
@@ -404,7 +406,7 @@ public class ElementWorld extends SWorld
                                         {
                                             if(contEnem==18)
                                             {
-                                                addObject(boss3,3690,450,false);
+                                                addObject(boss3,750,450,false);
 
                                             }
                                         }

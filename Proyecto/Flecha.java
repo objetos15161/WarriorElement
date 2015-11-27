@@ -31,15 +31,15 @@ public class Flecha extends Actor
 
         if(isTouching(Golem.class)) 
         {
-              if(time.millisElapsed()>1000)
-              {
+              //if(time.millisElapsed()>1000)
+              //{
                   gol.disminuyeVida(); 
-                  time.mark();
-              }
+               //   time.mark();
+              //}
        }
        if(isTouching(Soldado.class))
        {
-           sol.disminuyeVida();
+          sol.disminuyeVida(); 
        }
     }  
 }

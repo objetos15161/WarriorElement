@@ -10,8 +10,8 @@ public class Soldado extends Enemigo
 {
     private int[] tamX = new int[8];
     private int[] tamY = new int[8];
-    private int[] attkX = new int[9];
-    private int[] attkY = new int[9];
+    private int[] attkX = new int[6];
+    private int[] attkY = new int[6];
     private int[] killX = new int[8];
     private int[] killY = new int[8];
     
@@ -37,7 +37,7 @@ public class Soldado extends Enemigo
         {
         if(isTouching(Warrior.class) && yW>=475 && yW<480)
         {
-          spriteAtacar(attkX,attkY,8);
+          spriteAtacar(attkX,attkY,5);
           w.disminuyeVida(0);
         }
         else

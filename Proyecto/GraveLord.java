@@ -63,18 +63,14 @@ public class GraveLord extends Enemigo
           spriteAtacar(attkX,attkY,6);
           if(color == Color.BLACK)
           {
-            w.disminuyeVida(4);
+            w.disminuyeVida(0);
           }
-          else
-          {
-            w.disminuyeVida(2);  
-          }
-        
+                 
         }
         else
          {
           spriteCaminar(tamX,tamY,6);
-          checkLimit(525);
+          checkLimit(450);
          }        
         
        }
