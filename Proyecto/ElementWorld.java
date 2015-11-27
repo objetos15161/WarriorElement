@@ -262,7 +262,7 @@ public class ElementWorld extends SWorld
         g=new Golem();
         s=new Soldado();
 
-        contEnem=18; 
+        
 
         if(numNivel==1)
         {
