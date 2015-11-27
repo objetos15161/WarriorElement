@@ -71,6 +71,9 @@ public class Dragon extends Enemigo
       vida--;
     }
     
+     /**
+     * Inicializacion de los tamaños de los arreglos.
+     */
         public void inicializaTam()
     {
         tamX[0]=36; 

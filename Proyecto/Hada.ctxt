@@ -9,6 +9,7 @@ comment2.target=void\ disminuyeVida()
 comment2.text=public\ void\ checkLimit()\r\n\ \ \ \ {\r\n\ \ \ \ \ int\ x\=getX();\r\n\ \ \ \ \ if(x<\=50)\r\n\ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ setLocation(750,450);\r\n\ \ \ \ \ }\r\n}
 comment3.params=
 comment3.target=void\ inicializaTam()
+comment3.text=\r\n\ Inicializacion\ de\ los\ tama\u00F1os\ de\ los\ arreglos.\r\n
 comment4.params=world
 comment4.target=void\ addedToWorld(greenfoot.World)
 comment4.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n

@@ -20,8 +20,7 @@ public class Arania extends Enemigo
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
     /**
-     * Act - do whatever the Arania wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor con los nombres de los archivos del Enemigo Arania.
      */
     public Arania()
     {
@@ -29,6 +28,11 @@ public class Arania extends Enemigo
         inicializaTam();
 
     }
+    /**
+     * metodo Act() donde revisa si esta tocando al guerrero y
+     * ss esta tocando al guerrero disminuye su vida correspondiendo
+     * a la armadura que lleva puesta. 
+     */
     public void act() 
     {
        int x=getX();
@@ -56,12 +60,19 @@ public class Arania extends Enemigo
       }
     }
     
+    /**
+     * Metodo que es llamado atraves del guerrero cuando
+     * Habla con otra cuenta de xbox...
+     */
     public void disminuyeVida()
     {
       vida--;
      
     }
     
+    /**
+     * Inicializacion de los tamaños de los arreglos.
+     */
     public void inicializaTam()
     {
         tamX[0]=74; 

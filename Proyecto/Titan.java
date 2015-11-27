@@ -21,6 +21,10 @@ public class Titan extends Enemigo
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
     
+    /**
+     * Constructor del jefe de lava, donde se asignan los nombres de tus imagenes
+     * y la inicializacion de sus imagenes.
+     */
     public Titan()
     {
         super("Enemigo/JefeLavaCaminar0.png","Enemigo/JefeLavaCaminar","Enemigo/JefeLavaAtacar","Enemigo/JefeLavaMorir");
@@ -29,10 +33,7 @@ public class Titan extends Enemigo
         vida=new VidaBoss();
 
     }
-    /**
-     * Act - do whatever the Titan wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
     /**
      * Este método iguala la variable mundo a el World de juego.
      *
@@ -114,7 +115,10 @@ public class Titan extends Enemigo
     {
         vida.disminuyeVida(tipo);
     }
-   
+    
+    /**
+     * Inicializacion de los tamaños de los arreglos.
+     */
        public void inicializaTam()
     {
         tamX[0]=74;         tamY[0]=102;

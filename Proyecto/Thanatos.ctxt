@@ -12,4 +12,5 @@ comment3.target=void\ disminuyeVida(int)
 comment3.text=public\ void\ checkLimit()\r\n\ \ \ \ {\r\n\ \ \ \ \ int\ x\=getX();\r\n\ \ \ \ \ if(x<\=50)\r\n\ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ setLocation(750,450);\r\n\ \ \ \ \ }\r\n}
 comment4.params=
 comment4.target=void\ inicializaTam()
+comment4.text=\r\n\ Inicializacion\ de\ los\ tama\u00F1os\ de\ los\ arreglos.\r\n
 numComments=5

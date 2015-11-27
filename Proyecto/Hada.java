@@ -76,7 +76,9 @@ public class Hada extends Enemigo
      
     }
     
-    
+    /**
+     * Inicializacion de los tamaños de los arreglos.
+     */
     public void inicializaTam()
     {
         tamX[0]=57; 

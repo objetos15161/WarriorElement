@@ -63,6 +63,9 @@ public class Golem extends Enemigo
      
     }
     
+     /**
+     * Inicializacion de los tamaños de los arreglos.
+     */
     public void inicializaTam()
     {
         tamX[0]=75; 

@@ -32,8 +32,11 @@ public class Enemigo extends Actor
     
     private String cadena="";
     /**
-     * Act - do whatever the Enemigo wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor de enemigo donde se asigna el nombre
+     * del archivo principal, el archivo que necesita para  caminar,
+     * atacar, y morir.
+     * @param tamX Arreglo de Tamaños en X de cada imagen
+     * @param tamY Arreglo de Tamaños en Y de cada imagen
      */
     public Enemigo(String a,String e,String attk, String m)
     {
@@ -43,15 +46,20 @@ public class Enemigo extends Actor
         this.morir=m;
     }
     
-    public void act() 
-    {
-        // Add your action code here.
-    }
-    
+    /**
+     * 
+     */
     public void setataque(String unataque)
     {
         ataque=unataque;
     }
+    
+    /**
+     * Metodo que al momento de ser llamado
+     * el enemigo empieza a caminar y va cambiando cada imagen
+     * respecto al numero de imagenes se tengan guardadas en el arreglo
+     * 
+     */
     public void spriteCaminar(int tamX[],int tamY[],int numImg)
     {
         img = new GreenfootImage(archivo);
@@ -76,6 +84,13 @@ public class Enemigo extends Actor
         move(-1);
             //cont++; 
     }
+    
+    /**
+     * Metodo que al momento de ser llamado
+     * el enemigo empieza la animacion de atacar y va cambiando cada imagen
+     * respecto al numero de imagenes se tengan guardadas en el arreglo
+     * 
+     */
     public void spriteAtacar(int attkX[],int attkY[],int numImg)
     {
         img = new GreenfootImage(archivo);
@@ -98,6 +113,12 @@ public class Enemigo extends Actor
         cont2++;
             //cont++; 
     }
+    /**
+     * Metodo que al momento de ser llamado
+     * el enemigo empieza la animacion de morir y va cambiando cada imagen
+     * respecto al numero de imagenes se tengan guardadas en el arreglo
+     * 
+     */
     public void spriteMorir(int killX[],int killY[],int numImg)
     {
         img = new GreenfootImage(archivo);
@@ -122,6 +143,11 @@ public class Enemigo extends Actor
             //cont++; 
     }
     
+    /**
+     * Metodo que revisa los limites donde se encuentra el enemigo,
+     * al llegar al borde de la pantalla del lado izquierdo, reinicia
+     * y comienza a caminar de nuevo de lado derecho.
+     */
     public void checkLimit( int y)
     {
      int x=getX();
@@ -130,7 +156,10 @@ public class Enemigo extends Actor
          setLocation(750,y);
      }
     }
-    
+    /**
+     * Metodo que reinicia el contador de cada enemigo distinto,
+     * correspondiente a la imagen.
+     */
     public void reiniciaContador()
     {
         cont=0;

@@ -1,11 +1,16 @@
 import greenfoot.*;
 import java.util.LinkedList;
 /**
- * Class MyWorld: sample world to show how to make use of my world super-class SWorld
+ * Class ElementWorld es una sub-clase de Sworld
+ * @Author: Negrete Montalvo Raul Omar, Hervert Morales Leonardo Iván
+ * @version 27-Nov-15
+ * 
  */
 public class ElementWorld extends SWorld
 {
+    //Variables de los distintos botones que se usan durante el juego.
     private Boton jugar, ayuda, creditos, regresar,inventario,armAgua,armFuego,armTierra,armViento,vidaBoss;
+    
     private Cursor cursor;
     private LinkedList <GreenfootImage> imagenes;
     private MouseInfo info;
@@ -24,7 +29,8 @@ public class ElementWorld extends SWorld
     private int contEnem=1;
 
     /**
-     * Creates a scrolling world using a main actor, a background, some obstacles, and a non-scrolling score.
+     * Constructor que crea un mundo scroll-able usando un actor principal, un fondo, obstaculos, y objetos no scroll-ables.
+     * 
      */
     public ElementWorld()
     {    
@@ -64,7 +70,11 @@ public class ElementWorld extends SWorld
         menu();
 
     }
-
+    /**
+     * Metodo que se encarga de iniciar el actor principal, y los actores secundarios
+     * dentro del nivel 1, sus botones de armadura, el actor principal "Warrior", y el
+     * fondo que es scroll-able
+     */
     public void nivel1()
     {
         numNivel=1;
@@ -81,20 +91,12 @@ public class ElementWorld extends SWorld
         setScrollingBackground(bg); 
         
     }
-
-    public void disminuyeVidaEnemigo(int tipo)
-    {
-        if(numNivel==1)
-        {
-          boss1.disminuyeVida(tipo);
-        } 
-        
-        if(numNivel==2)
-        {
-          boss2.disminuyeVida(tipo);
-        }
-    }
-
+    
+    /**
+   * Metodo que se encarga de iniciar las variables principales del nivel 2, tanto
+   * su actor principal,como el fondo que va a llevar. Y removiendo los objetos que
+   * ya no se van a utilizar del nivel pasado.
+   */
     public void nivel2()
     {
         removeObjects(getObjects(Vida.class));
@@ -110,6 +112,11 @@ public class ElementWorld extends SWorld
         setScrollingBackground(bg);
 
     }
+    /**
+       * Metodo que se encarga de iniciar las variables principales del nivel 2, tanto
+       * su actor principal,como el fondo que va a llevar. Y removiendo los objetos que
+       * ya no se van a utilizar del nivel pasado.
+     */
     public void nivel3()
     {
         removeObjects(getObjects(Vida.class));
@@ -148,7 +155,21 @@ public class ElementWorld extends SWorld
         addObject(new Pico(),3170,585);         
 
     }
-
+    /**
+     * Metodo que disminuye la vida de los enemigos principales,dependiendo del nivel donde se encuentre el Guerrero
+     */
+    public void disminuyeVidaEnemigo(int tipo)
+    {
+        if(numNivel==1)
+        {
+          boss1.disminuyeVida(tipo);
+        } 
+        
+        if(numNivel==2)
+        {
+          boss2.disminuyeVida(tipo);
+        }
+    }
     /**
      * Este método muestra la pantalla de Menú. Coloca
      * el fondo de pantalla, agregando los objetos necesarios
@@ -164,13 +185,40 @@ public class ElementWorld extends SWorld
         Greenfoot.setSpeed(50);
 
     }
-
+    /**
+     * Metodo act() que se encarga de revisar en que nivel se encuentra el Guerrero, cuales son los botones o teclas que usa el usuario y la manera en la que se va a pintar cada actor.
+     * Comienza desde el menu del juego y este cambia respecto al objeto que sea presionado con el mouse.
+     * Despues revisa en que nivel del juego esta.
+     */
     public void act()
     {            
         super.act();
         seleccionar();
         seleccionaArmadura();
+        if(numNivel==1)
+        {
+            if(numNivel>0 && war.getY()<450)
+            {
+                setPaintOrder(Hada.class);
+                setPaintOrder(Dragon.class);
+                setPaintOrder(Thanatos.class);
+            }
+            else
+                setPaintOrder(Warrior.class);
+        }
 
+        if(numNivel==2)
+        {
+            if(numNivel>0 && war.getY()<525)
+            {
+                setPaintOrder(Golem.class);
+                setPaintOrder(Arania.class);
+                setPaintOrder(Titan.class);
+            }
+            else
+                setPaintOrder(Warrior.class);
+        }
+       
         if(numNivel==2)
         {
 
@@ -194,33 +242,11 @@ public class ElementWorld extends SWorld
 
         }
 
-        if(numNivel==1)
-        {
-            if(numNivel>0 && war.getY()<450)
-            {
-                setPaintOrder(Hada.class);
-                setPaintOrder(Dragon.class);
-                setPaintOrder(Thanatos.class);
-            }
-            else
-                setPaintOrder(Warrior.class);
-        }
-
-        if(numNivel==1)
-        {
-            if(numNivel>0 && war.getY()<525)
-            {
-                setPaintOrder(Golem.class);
-                setPaintOrder(Arania.class);
-                setPaintOrder(Titan.class);
-            }
-            else
-                setPaintOrder(Warrior.class);
-        }
-
-
     }
-
+    /**
+     * Metodo que revisa quienes son los enemigos que deben aparecen en diferentes partes del juego, tambien estan los jefes esperando que mueran todos los enemigos para 
+     * poder aparecer y matarlo.
+     */
     public void checkEnemigos()
     {
         h=new Hada();
@@ -386,7 +412,9 @@ public class ElementWorld extends SWorld
                 }
             }
     }
-
+/**
+ * Metodo que crea 3 meteoros y caen en diferentes tiempos al llegar al nivel 2 y como los meteoros 
+ */
     private void createNewMeteoro()
     {
         Meteoro meteoro1, meteoro2, meteoro3;
@@ -399,7 +427,9 @@ public class ElementWorld extends SWorld
         addObject(meteoro2 , 600, 10,false);
         addObject(meteoro3 , 800, 10,false);
     }
-
+ /**
+  * Metodo para crear las plataformas qeu se encuentran en el nivel 3
+  */
     private void createNewPlataformas()
     {
         PlataformaVD plataforma3;
@@ -412,7 +442,9 @@ public class ElementWorld extends SWorld
         addObject(plataforma3 , 2570, 20);
 
     }
-
+/**
+ * Metodo para crear los picos que caen de la parte de arriba del escenario y el arreglo de estacas que se encuentran en el suelo.
+ */
     private void createNewEstacas()
     {
         int i;
@@ -477,6 +509,8 @@ public class ElementWorld extends SWorld
     }
 
     /**
+     * Este metodo entra en el act() y cuando este se ejecuta manda un mensaje al guerrero dentro del
+     * para que pueda elegir entre que armadura usar.
      * 
      */
     public void seleccionaArmadura()
@@ -501,7 +535,11 @@ public class ElementWorld extends SWorld
             war.armaduraFuego();
         }
     }
-
+    
+    /**
+     * Metodo que manda mensaje al guerrero y revisar si esta siendo alcanzado por un enemigo.
+     * y si es asi revisa que tipo de enemigo es.
+     */
     public void disminuyeVida(int tipo)
     {
         war.checkTouch(tipo);
@@ -573,17 +611,23 @@ public class ElementWorld extends SWorld
         addObject(cursor, 0, 0);
         addObject(regresar, 714, 565);
     }
-
+    
+    /**
+     * Revisa en que estado esta el jefe del nivel, ya que este cambia de elemento cada cierto tiempo,
+     * cada jefe tiene 2 diferentes propiedades, y hara daño respecto a la armadura que se tenga.
+     */
     public void estadoBoss()
     {
         addObject(vidaBoss,640,65,false);
     }
-
+   
+    
     public void removeEstado()
     {
         removeObject(vidaBoss);
     }
 
+    
     public void abrePortal()
     {
         if(numNivel==1)
@@ -596,37 +640,67 @@ public class ElementWorld extends SWorld
             addObject(new Portal(),3600,440);
         }
     }
-
+    
+    /**
+     * Este método regresa un objeto que hereda de enemigo clase Hada
+     * 
+     * @return Hada - Objeto enemigo que aparece en un nivel del juego.
+     */
     public Hada dimeHada()
     {
         return (h);
     }
-
+    /**
+     * Este método regresa un objeto que hereda de enemigo clase Dragon.
+     * 
+     * @return Dragon - Objeto enemigo que aparece en un nivel del juego.
+     */
     public Dragon dimeDragon()
     {
         return (d);
     }
-
+    /**
+     * Este método regresa un objeto de la clase Golem.
+     * 
+     * @return Golem - Objeto enemigo que aparece en un nivel del juego.
+     */
     public Golem dimeGolem()
     {
         return (g);
     }
-
+    /**
+     * Este método regresa un objeto en especifico de la clase Arania.
+     * 
+     * @return Arania - Objeto enemigo que aparece en un nivel del juego.
+     */
     public Arania dimeArania()
     {
         return (a);
     }
-    
+    /**
+     * Este método regresa un objeto de la clase Soldad.
+     * 
+     * @return Soldado - Objeto creditos de la clase Boton.
+     */
     public Soldado dimeSoldado()
     {
        return (s);
     }
+    
+    /**
+     *Metodo que se llama cuando el usuario tiene la armadura de viento y quiere atacar,
+     *el jugador dispara una flecha
+     */
     public void dibujaFlecha()
     {
         flecha = new Flecha();
         addObject(flecha, war.getX(),war.getY(), false);
+        
     }
     
+    /**
+     * 
+     */
     public int coordenadasWarrior()
     {
         int coordY=war.getY();

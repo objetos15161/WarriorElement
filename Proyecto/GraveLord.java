@@ -118,6 +118,9 @@ public class GraveLord extends Enemigo
         vida.disminuyeVida(tipo);
     }
    
+    /**
+     * Inicializacion de los tamaños de los arreglos.
+     */
        public void inicializaTam()
     {
         tamX[0]=138;         tamY[0]=200;

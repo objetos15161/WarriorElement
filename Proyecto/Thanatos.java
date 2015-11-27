@@ -115,7 +115,9 @@ public class Thanatos extends Enemigo
     {
         vida.disminuyeVida(tipo);
     }
-   
+    /**
+     * Inicializacion de los tamaños de los arreglos.
+     */
        public void inicializaTam()
     {
         tamX[0]=70;         tamY[0]=121;

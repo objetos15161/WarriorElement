@@ -12,10 +12,11 @@ public class Flecha extends Actor
      * Act - do whatever the flecha wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private SimpleTimer time;
     private ElementWorld w;
     public Flecha()
     {
-        
+        time=new SimpleTimer();
     }
 
     public void act() 
@@ -30,8 +31,11 @@ public class Flecha extends Actor
 
         if(isTouching(Golem.class)) 
         {
-              gol.disminuyeVida(); 
-            
+              if(time.millisElapsed()>1000)
+              {
+                  gol.disminuyeVida(); 
+                  time.mark();
+              }
        }
        if(isTouching(Soldado.class))
        {

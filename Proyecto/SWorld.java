@@ -1,35 +1,33 @@
 import greenfoot.*;
 import java.util.List;
 import java.util.ArrayList;
-
 /**
- * SWorld is a super-class for a scrolling world (horizontal, vertical, or both).<br><br>
+ * Class SWorld es una super clase para hacer un mundo con scroll(Horizontal,Vertical, o ambos).<br><br> 
  * Author: danpost<br>Version: October 28, 2013 (v2.0)<br><br>
- * To implement this super-class:
- * <l><li>(1) create a sub-class of this class</li>
- * <li>(2) use a <i>super(....)</i> call to one of the constructors in this class</li>
- * <li>(3) create the main actor (one that always stays in view) and call the <i>setMainActor</i> method</li>
- * <li>(4) (optional) set a scrolling background image using a call to <i>setScrollingBackground</i> or <i>fillScrollingBackground</i></li></l><br>
- * NOTE: the order of steps above is very important<br><br>
- * There are two methods to add other objects into the world:
- * <l><li>the standard method <i>addObject(Actor, int, int)</i> can be used to add a scrollable actor into the world</li>
- * <li>a secondary method <i>addObject(Actor, int, int, boolean)</i> which is equivalent to the standard method, except
- * that the boolean will indicate the scrollable state of the object.  When adding scrolling objects into the world,
- * use scrolling coordinates; when adding non-scrolling objects, use world coordinates.</li></l>
- *
- * SPECIAL NOTE: if you decide to override the 'act' method of this class with an 'act' method in your sub-world, you will
- * need to follow the format below to run the scrolling of the scenario:
- * 
+ * Para implementar la Clase padre:
+ * <l><li>(1) Crear una clase hijo de SWorld</li>
+ * <li>(2) Llamar en el constructor de la sub clase el metodo <i> super(....)</i> </li> 
+ * <li>(3) Crear un Actor principal (El personaje principal que se va a ver) y llamar al metodo <i> setMainActor</i></li>
+ * <li>(4)(Opcional) Establecer una imagen fondo scroll-able llamando al metodo <i>setScrollingBackground</i> o <i>fillScrollingBackground</i></li></l><br> 
+ * Nota: El order de los pasos es importante<br><br> 
+ * Se encuentran dos metodos para agregar otros objetos en el mundo:
+ * <l><li>El metodo estandar <i>addObject(Actor,int,int)</i> puede ser usado para agregar un scroll-able actor en el mundo </li>
+ * <li>Un metodo secundario <i>addObject(Actor,int,int,boolean)</i> que es equivalente al metodo estandar, pero 
+ * el parametro booleano indicara el estado scroll-able del objeto. Cuando son agregados los objetos con scroll en el mundo,
+ * se usaran las coordenadas scroll-ables, cuando se agregan objetos no scroll-ables, se usan las variables del mundo.</li<l>
+ 
+ *Nota especial:si tu decides sobre escribir el metodo "act" de esta clase con el metodo "act" de la clase hijo, vas a necesitar 
+ *seguir el formato siguiente para correr el escenario scroll-able:
  * <pre>        public void act()
  *        {
- *            // possibly some code here      
+ *            // Codigo     
  *            super.act();
- *            // possibly some more code here
+ *            // Codigo
  *        }<pre>
  */
 public class SWorld extends World
 {
-    private int scrollingWidth, scrollingHeight; // limits for main actor within universal coordinates
+    private int scrollingWidth, scrollingHeight; //limits for main actor within universal coordinates
     private int actorMinX, actorMaxX, actorMinY, actorMaxY; // limits for main actor within world coordinates
     private int scrolledX, scrolledY; // initial scrolled amount
     private int scrollType; // indicates scrolling directions (0=none, 1=horizontal, 2=vertical, 3=both)

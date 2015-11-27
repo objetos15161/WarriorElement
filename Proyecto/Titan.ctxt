@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Titan()
+comment0.text=\r\n\ Constructor\ del\ jefe\ de\ lava,\ donde\ se\ asignan\ los\ nombres\ de\ tus\ imagenes\r\n\ y\ la\ inicializacion\ de\ sus\ imagenes.\r\n
 comment1.params=world
 comment1.target=void\ addedToWorld(greenfoot.World)
 comment1.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n
@@ -12,4 +13,5 @@ comment4.params=tipo
 comment4.target=void\ disminuyeVida(int)
 comment5.params=
 comment5.target=void\ inicializaTam()
+comment5.text=\r\n\ Inicializacion\ de\ los\ tama\u00F1os\ de\ los\ arreglos.\r\n
 numComments=6
