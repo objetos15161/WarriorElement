@@ -56,16 +56,7 @@ public class Dragon extends Enemigo
                        
       }
     } 
-    
-    /*public void checkLimit()
-    {
-     int x=getX();
-     if(x<=50)
-     {
-         setLocation(750,450);
-     }
-    }*/
-    
+        
     public void disminuyeVida()
     {
       vida--;

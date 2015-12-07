@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class GameOver here.
+ * Clase simple que permite agregar una imagen al perder.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Leonardo Hervert.
+ * @version 06/Dic/2015.
  */
 public class GameOver extends Actor
 {

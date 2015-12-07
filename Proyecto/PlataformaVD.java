@@ -1,18 +1,19 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Plataforma here.
+ * Clase simple que representa a una plataforma con movimiento vertical
+ * hacia abajo.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete.
+ * @author Leonardo Hervert.
+ * @version 06/Dic/2015.
  */
 public class PlataformaVD extends Obstaculo
 {
     private ElementWorld w;
     
     /**
-     * Act - do whatever the Plataforma wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act permite que la plataforma se mueva de arriba hacia abajo
      */
     public void act() 
     {
@@ -24,6 +25,9 @@ public class PlataformaVD extends Obstaculo
         
     }
     
+    /**
+     *Envia un mensaje cuando toca a un objeto de la clase Pico para eliminarse. 
+     */
     public void checkLimit()
     {
         int y=getY();

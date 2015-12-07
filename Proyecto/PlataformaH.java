@@ -1,17 +1,17 @@
 import greenfoot.*;
 
 /**
- * Write a description of class PlataformaH here.
+ * Clase que representa una plataforma con movimiento horizontal.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete.
+ * @author Leonardo Hervert.
+ * @version 06/Dic/2015.
  */
 public class PlataformaH extends Obstaculo
 {
     private int dir=1;
     /**
-     * Act - do whatever the PlataformaH wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act genera movimiento a la izquierda o derecha segun la direccion.
      */
     public void act() 
     {
@@ -26,6 +26,10 @@ public class PlataformaH extends Obstaculo
         checkDir();
     } 
     
+    
+   /**
+    * Detecta cuando se toca un objeto de tipo Suelo y modifica la direccion.
+    */
     public void checkDir()
     {
         if(isTouching(Suelo.class))

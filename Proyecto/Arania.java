@@ -61,8 +61,7 @@ public class Arania extends Enemigo
     }
     
     /**
-     * Metodo que es llamado atraves del guerrero cuando
-     * Habla con otra cuenta de xbox...
+     * Disminuye la vida de Arania.
      */
     public void disminuyeVida()
     {

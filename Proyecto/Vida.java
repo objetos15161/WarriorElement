@@ -2,36 +2,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 import java.awt.Color;
 
 /**
- * A paddle is a rectangular object that can be moved via the left
- * and right arrow keys.  
+ *Clase que representa la Vida de Warrior  
  * 
  * @author Barbara Ericson, Georgia Tech
- * @version 1.0 April 6, 2007
+ * @author Omar Negrete, Leonardo Hervert. 
+ * @version 19/Nov/2015
  */
 public class Vida extends Actor
 {
-    /////////////// fields ////////////////////
-  
-    /** Width of the life */
+      
+    /** Largo de la barra de vida */
     private int width = 212;
   
-    /** Height of the life */
+    /** Ancho de la barra de vida*/
     private int height = 13;
     
       
-    /** color of this life */
+    /** Color de la barra de vida */
     private Color color = Color.RED;
     
-    private SimpleTimer time = new SimpleTimer();
-    
-  
-    
- 
-    
-    ///////////// constructors ///////////////////////////
-  
-    /**
-     * No argument constructor 
+    private SimpleTimer time = new SimpleTimer();   
+         
+     /**
+     * Constructor de la barra de  Vida de Warrior.
      */
     public Vida()
     {
@@ -43,7 +36,6 @@ public class Vida extends Actor
      * @param theWidth the width to use
      * @param theHeight the height to use
      * @param theColor the color to use
-     * @param theAmount the number of cells (pixels) to move
      */
     public Vida(int theWidth, int theHeight, 
                   Color theColor)
@@ -54,11 +46,10 @@ public class Vida extends Actor
         updateImage();
     }
     
-    ///////////////////// Methods ///////////////////////////////
+   
 
     /**
-     * 
-     * 
+     * Genera un mensaje de GameOver al pasar el limite de vida.
      */
     public void act() 
     { 
@@ -68,12 +59,18 @@ public class Vida extends Actor
          }
     }
     
+    /**
+     * Llama a otro metodo y detiene el juego.
+     */
     public void gameOver()
     {
         createOver();
         Greenfoot.stop();
     }
     
+    /**
+     * Genera una imagen de GameOver.
+     */
     private void createOver()
     {
         GameOver newOver;
@@ -95,8 +92,7 @@ public class Vida extends Actor
     }
     
     /**
-     * Method to create and set the image for this paddle.  Invoke
-     * this method again when the width, height, or color change.
+     * Realiza cambios fisicos de la barra de Vida.
      */
     public void updateImage()
     {
@@ -108,8 +104,8 @@ public class Vida extends Actor
       
     }
     
-     /*
-     * Cambia el tama?o de barra de vida 
+     /**
+     * Cambia el tamano de la barra de vida 
      */
     public void disminuyeVida()
     {

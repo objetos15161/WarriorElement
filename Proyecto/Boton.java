@@ -1,18 +1,16 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Boton here.
+ * Esta clase representa un elemento de la interfaz del juego,
+ * es agregado en cada parte de menú y en el estado de Warrior en el ElementWorld.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete.
+ * @author Leonardo Hervert.
+ * @version 20/Nov/2015
  */
 public class Boton extends Actor
 {
-    /**
-     * Act - do whatever the Boton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
+   
     /**
      * Constructor de la clase, inicializa la imágen que utiliza el objeto de esta clase.
      */

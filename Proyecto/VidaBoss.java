@@ -1,23 +1,23 @@
 import greenfoot.*;
 import java.awt.Color;
 /**
- * Write a description of class VidaBoss here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Clase que representa la vida de Boss.
+ * @author Barbara Ericson, Georgia Tech
+ * @author Omar Negrete, Leonardo Hervert. 
+ * @version 06/Dic/2015
  */
 public class VidaBoss extends Actor
 {
     private SimpleTimer time=new SimpleTimer();
     
-    /** Width of the life */
+    /** Largo de la barra de vida */
     private int width = 212;
   
-    /** Height of the life */
+    /** Ancho de la barra de vida */
     private int height = 13;
     
       
-    /** color of this life */
+    /** Color de la barra de vida */
     private Color color = Color.BLACK;
     
     private ElementWorld w;
@@ -31,11 +31,11 @@ public class VidaBoss extends Actor
     }
     
     /**
-     * Constructor that takes the width, height, color, and moveAmount
-     * @param theWidth the width to use
-     * @param theHeight the height to use
-     * @param theColor the color to use
-     * @param theAmount the number of cells (pixels) to move
+     * Constructor de VidaBoss
+     * @param theWidth largo que se usa
+     * @param theHeight ancho que se usa
+     * @param theColor color que se usa
+     * 
      */
     public VidaBoss(int theWidth, int theHeight, 
                   Color theColor)
@@ -48,8 +48,7 @@ public class VidaBoss extends Actor
     
     
     /**
-     * Act - do whatever the VidaBoss wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act de la clase VidaBoss llama a un metodo.
      */
     public void act() 
     {
@@ -57,8 +56,7 @@ public class VidaBoss extends Actor
     } 
     
     /**
-     * Method to create and set the image for this paddle.  Invoke
-     * this method again when the width, height, or color change.
+     * Realiza cambios fisicos de la barra de vida.
      */
     public void updateImage()
     {
@@ -70,8 +68,8 @@ public class VidaBoss extends Actor
       
     }
     
-    /*
-     * Cambia el tama?o de barra de vida 
+    /**
+     * Cambia el tamano de barra de vida 
      */
     public void disminuyeVida(int tipo)
     {
@@ -124,7 +122,9 @@ public class VidaBoss extends Actor
         move(2);
     }
     
-    public void checkTime()
+    /**
+     * Cambia el color de la barra de vida cada 5 segundos.
+     */public void checkTime()
     {
         if(time.millisElapsed()>5000 &&  color == Color.BLACK)
         {
@@ -142,11 +142,18 @@ public class VidaBoss extends Actor
     
     }
     
+    /**
+     * Devuelve el color actual de la barra.
+     * @return retorna el color actual del objeto.
+     */
     public Color dimeElemento()
     {
         return color;
     }
-    
+    /**
+     * Devuelve el largo de la barra de vida.
+     * @return regresa el valor actual de width
+     */
     public int dimeVida()
     {
         return width;

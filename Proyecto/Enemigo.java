@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Enemigo here.
+ * Clase enemigo.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Raul Omar Negrete Montalvo, Leonardo Ivan Hervert Morales 
+ * @version 06/Dic/2015
  */
 public class Enemigo extends Actor
 {

@@ -1,17 +1,14 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Portal here.
+ * Clase simple que crea un portal con el cual interactua el personaje principal.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete 
+ * @version 06/Nov/2015
  */
 public class Portal extends Actor
 {
-    /**
-     * Act - do whatever the Portal wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+   
     public void act() 
     {
         // Add your action code here.

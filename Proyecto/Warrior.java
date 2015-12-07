@@ -1,9 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Warrior here.
+ * Clase que representa al personaje principal del juego.
  * 
- * @author Negrete Montalvo Raul Omar, Hervert Morales Leonardo Iván  
+ * @author Negrete Montalvo Raul Omar. 
+ * @author Hervert Morales Leonardo Iván.  
  * @version 10-Nov-15
  */
 public class Warrior extends Actor
@@ -24,8 +25,8 @@ public class Warrior extends Actor
     private int nivel;
     private Vida vida; 
     /**
-     * Constructor de clase Warrior, Jugador que se mueve en el mun
-     * 
+     * Constructor de clase Warrior, Jugador que se mueve en el mundo
+     * @param level Indica el nivel actual deljuego
      * 
      */
     public Warrior(int level)
@@ -55,7 +56,7 @@ public class Warrior extends Actor
     }
 
     /**
-     * 
+     * Este metodo se encarga de generar los cambios de imagen de Warrior para simular sus movimientos de transicion por el mundo.
      */
     public void spriteNormal()
     {
@@ -78,7 +79,7 @@ public class Warrior extends Actor
     }
 
     /**
-     * 
+     * Este metodo se encarga de generar los cambios de imagen de Warrior para simular sus ataques.
      */
     public void spriteAtaque()
     {
@@ -205,7 +206,7 @@ public class Warrior extends Actor
 
         
     /**
-     * 
+     * Permite generar los movimientos de Warrior
      */
     public void move()
     {
@@ -290,23 +291,7 @@ public class Warrior extends Actor
                w.disminuyeVidaEnemigo(0);
                vista=0;
             }
-            /*else
-            if(isTouching() && vista==4 && direccion==0 && elemento="ArmorEarth")
-            {
-              w.disminuyeVidaEnemigo();
-              vista=0;
-            }
-            else
-            if(isTouching() && vista==4 && direccion==0 && elemento="ArmorWint")
-            {
-              w.disminuyeVidaEnemigo();
-              vista=0;
-            }
-            if(isTouching() && vista==4 && direccion==0 && elemento="ArmorWater")
-            {
-              w.disminuyeVidaEnemigo();
-              vista=0;
-            }*/
+            
         }
     }
 
@@ -369,7 +354,7 @@ public class Warrior extends Actor
     }
 
     /**
-     * 
+     * Modifica la variable elemento al estilo agua.
      */
     public void armaduraAgua()
     {
@@ -377,7 +362,7 @@ public class Warrior extends Actor
     }
 
     /**
-     * 
+     * Modifica la variable elemento al estilo tierra.
      */
     public void armaduraTierra()
     {
@@ -385,7 +370,7 @@ public class Warrior extends Actor
     }
 
     /**
-     * 
+     * Modifica la variable elemento al estilo viento.
      */
     public void armaduraViento()
     {
@@ -393,13 +378,16 @@ public class Warrior extends Actor
     }
 
     /**
-     * 
+     * Modifica la variable elemento al estilo fuego.
      */
     public void armaduraFuego()
     {
         elemento="ArmorFire";
     }
 
+    /**
+     * Hace un llamado a ElementWorld para cambiar de nivel.
+     */
     public void cambiaNivel()
     {
         int x=getX();
@@ -421,6 +409,10 @@ public class Warrior extends Actor
         
     }
 
+    /**
+     * Envia mensajes a la clase Vida para modificar su valor segun el tipo de elemento.
+     * @param tipo Entero que representa un elemento.
+     */
     public void checkTouch(int tipo)
     {
         if(tipo==0)
@@ -448,14 +440,18 @@ public class Warrior extends Actor
          vida.disminuyeVida();
         }
     }
-
+            
     public boolean canSee(Class clss)
     {
         Actor actor = getOneObjectAtOffset(0, 0, clss);
         return actor != null;        
     }
     
-        public void tryToKill()
+     /**
+      * Envia mensajes al enemigo que se esta atacando para disminuir su vida.
+      */
+     
+     public void tryToKill()
     {
       if(nivel==1)
       {

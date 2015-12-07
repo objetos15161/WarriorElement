@@ -1,10 +1,11 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Estaca here.
+ * Clase Estaca que representa un obstaculo del nivel 3.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete.
+ * @author Leonardo Hervert.
+ * @version 06/Dic/2015.
  */
 public class Estaca extends Obstaculo
 {
@@ -21,7 +22,11 @@ public class Estaca extends Obstaculo
         checkLimit();
     } 
     
-    public void checkLimit()
+    /**
+     * Envia mensajes al mundo para disminuir la vida de Warrior si toca al Objeto
+     * Suelo se elimina.
+     */
+  public void checkLimit()
     {
         if(isTouching(Warrior.class))
         {

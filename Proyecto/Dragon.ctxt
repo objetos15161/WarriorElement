@@ -6,7 +6,6 @@ comment1.params=
 comment1.target=void\ act()
 comment2.params=
 comment2.target=void\ disminuyeVida()
-comment2.text=public\ void\ checkLimit()\r\n\ \ \ \ {\r\n\ \ \ \ \ int\ x\=getX();\r\n\ \ \ \ \ if(x<\=50)\r\n\ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ setLocation(750,450);\r\n\ \ \ \ \ }\r\n}
 comment3.params=
 comment3.target=void\ inicializaTam()
 comment3.text=\r\n\ Inicializacion\ de\ los\ tama\u00F1os\ de\ los\ arreglos.\r\n

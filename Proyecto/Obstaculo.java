@@ -1,10 +1,11 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Obstaculo here.
+ * Clase Obstaculo.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete. 
+ * @author Leonardo Hervert. 
+ * @version 20/Nov/2015
  */
 public class Obstaculo extends Actor
 {
@@ -18,7 +19,10 @@ public class Obstaculo extends Actor
         // Add your action code here.
     } 
     
-     public void checkTouch()
+    /**
+     * Envia un mensaje para disminuir la vida de Warrior.
+     */
+    public void checkTouch()
     {       
         
         if (isTouching(Warrior.class))

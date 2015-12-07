@@ -1,18 +1,18 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Meteoro here.
+ * Clase Meteoro que es un obstaculo que se presenta en el nivel 2.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete. 
+ * @author Leonardo Hervert. 
+ * @version 20/Nov/2015
  */
 public class Meteoro extends Obstaculo
 {
     private ElementWorld w;
 
     /**
-     * Act - do whatever the Meteoro wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act de Meteoro.
      */
     public void act() 
     {
@@ -22,7 +22,11 @@ public class Meteoro extends Obstaculo
         checkTouching();
     }  
 
-        public void checkTouching()
+    /**
+     * Envia mensajes para disminuir la vida de Warrior o en caso de no hacerlo
+     * enviar mensaje para desaparecer.
+     */    
+    public void checkTouching()
     {       
         int x=getX();
         int y=getY();

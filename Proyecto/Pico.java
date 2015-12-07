@@ -1,16 +1,16 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Pico here.
+ * Clase simple que representa un obstaculo que daña bajo cualquier circunstancia a Warrior.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ *@author Omar Negrete.
+ * @author Leonardo Hervert.
+ * @version 06/Dic/2015.
  */
 public class Pico extends Obstaculo
 {
     /**
-     * Act - do whatever the Pico wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act revisa en todo momento si esta tocando a Warrior.
      */
     public void act() 
     {

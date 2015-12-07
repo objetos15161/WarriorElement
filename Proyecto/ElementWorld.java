@@ -163,7 +163,9 @@ public class ElementWorld extends SWorld
 
     }
     /**
-     * Metodo que disminuye la vida de los enemigos principales,dependiendo del nivel donde se encuentre el Guerrero
+     * Metodo que disminuye la vida de los enemigos principales,dependiendo del nivel
+       donde se encuentre el Guerrero
+     * @param tipo Entero que representa a un tipo de elmento 
      */
     public void disminuyeVidaEnemigo(int tipo)
     {
@@ -427,7 +429,7 @@ public class ElementWorld extends SWorld
             }
     }
 /**
- * Metodo que crea 3 meteoros y caen en diferentes tiempos al llegar al nivel 2 y como los meteoros 
+ * Metodo que crea 3 meteoros y caen en diferentes tiempos al llegar al nivel 2  
  */
     private void createNewMeteoro()
     {
@@ -553,6 +555,7 @@ public class ElementWorld extends SWorld
     /**
      * Metodo que manda mensaje al guerrero y revisar si esta siendo alcanzado por un enemigo.
      * y si es asi revisa que tipo de enemigo es.
+     * @param tipo Entero que representa un elemnto.
      */
     public void disminuyeVida(int tipo)
     {
@@ -636,12 +639,18 @@ public class ElementWorld extends SWorld
     }
    
     
+    /**
+     * Borra del mundo el estado de vida de Boss.
+     */
     public void removeEstado()
     {
         removeObject(vidaBoss);
     }
 
     
+    /**
+     * Dibuja en el mundo un objeto de la clase Portal.
+     */
     public void abrePortal()
     {
         if(numNivel==1)

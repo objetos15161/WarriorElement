@@ -1,10 +1,11 @@
 import greenfoot.*;
 import java.util.LinkedList;
 /**
- * Write a description of class Cursor here.
+ * Esta clase representa el cursor en el menu del juego.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Leonardo Hervert.
+ * @author Omar Negrete.
+ * @version 06/Dic/2015.
  */
 public class Cursor extends Actor
 {
@@ -16,7 +17,13 @@ public class Cursor extends Actor
     private ElementWorld warrior;
     private Boton jugar, ayuda, creditos, regresar;
 
-    public Cursor(GreenfootImage ima)
+    
+   /**
+    * Constructor de la clase Cursor. Iniciaiza las variables
+    * de instancia, además de definir las
+    * imágenes que utiliza el objeto de esta clase.
+    */
+   public Cursor(GreenfootImage ima)
     {
         super();
         this.setImage(ima);
@@ -39,8 +46,8 @@ public class Cursor extends Actor
     }
 
     /**
-     * Act - do whatever the Cursor wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
      */
     public void act() 
     {
@@ -70,7 +77,7 @@ public class Cursor extends Actor
      * contenida en una Lista de la posición específicada
      * por el valor asignado en la llamada a este método.
      * 
-     * @param int Valor de la posición de la imágen que se
+     * @param int n de la posición de la imágen que se
      * desea obtener.
      * @return GreenfootImage - Imágen contenida en la Lista
      * en la posición especificada.

@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Flecha()
+comment0.text=\r\n\ Constructor\ de\ flecha.\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ Act\ de\ Flecha\ que\ inicializa\ variables\ de\ instancia\ y\ revisa\ condiciones\r\n\ de\ colision.\r\n
 numComments=2

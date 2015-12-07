@@ -1,7 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ PlataformaH\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment0.text=\r\n\ Act\ genera\ movimiento\ a\ la\ izquierda\ o\ derecha\ segun\ la\ direccion.\r\n
 comment1.params=
 comment1.target=void\ checkDir()
+comment1.text=\r\n\ Detecta\ cuando\ se\ toca\ un\ objeto\ de\ tipo\ Suelo\ y\ modifica\ la\ direccion.\r\n
 numComments=2

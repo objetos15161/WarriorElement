@@ -1,10 +1,11 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Suelo here.
+ * Clase simple que representa el suelo del nivel 3.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Omar Negrete.
+ * @author Leonardo Hervert.
+ * @version 06/Dic/2015.
  */
 public class Suelo extends Obstaculo
 {
