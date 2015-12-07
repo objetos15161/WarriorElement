@@ -29,10 +29,14 @@ public class Soldado extends Enemigo
         inicializaTam();
 
     }
+    
     public void act() 
     {
-         int x=getX();
+        int x=getX();
+        int y=getY();
         int yW=w.coordenadasWarrior();
+        int xW=w.coordenadasWarriorX();
+        
        if(vida>0)
         {
         if(isTouching(Warrior.class) && yW>=475 && yW<480)
@@ -42,8 +46,17 @@ public class Soldado extends Enemigo
         }
         else
          {
-          spriteCaminar(tamX,tamY,7);
-          checkLimit(450);
+          if(x-xW<=300)
+          {
+           spriteCaminar(tamX,tamY,7);
+           if(x<xW-100) 
+           {
+               if(y==480)
+                 setLocation(xW+300,480);
+               else
+                  setLocation(xW+300,200);
+            }
+          }
          }        
         
        }

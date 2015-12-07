@@ -180,7 +180,7 @@ public class Warrior extends Actor
                   {
                       if(isTouching(PlataformaVU.class))
                       {
-                       setLocation(x,y-1);
+                       setLocation(x,y-2);
                       }
                       else
                       {
@@ -287,9 +287,8 @@ public class Warrior extends Actor
             
             if(isTouching(GraveLord.class) && vista==4 && direccion==0)  
             {
-             
-                w.disminuyeVidaEnemigo(0);
-               
+               w.disminuyeVidaEnemigo(0);
+               vista=0;
             }
             /*else
             if(isTouching() && vista==4 && direccion==0 && elemento="ArmorEarth")

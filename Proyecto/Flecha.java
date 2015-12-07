@@ -13,7 +13,8 @@ public class Flecha extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private SimpleTimer time;
-    private ElementWorld w;
+    //private ElementWorld w;
+    
     public Flecha()
     {
         time=new SimpleTimer();
@@ -28,18 +29,21 @@ public class Flecha extends Actor
         setLocation(getX()+5,getY());
         if(getY()<=0)
             element.removeObject(this);
-
+            
+        
         if(isTouching(Golem.class)) 
         {
               //if(time.millisElapsed()>1000)
               //{
                   gol.disminuyeVida(); 
+                 
                //   time.mark();
               //}
        }
        if(isTouching(Soldado.class))
        {
           sol.disminuyeVida(); 
+        
        }
     }  
 }

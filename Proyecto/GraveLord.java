@@ -58,7 +58,7 @@ public class GraveLord extends Enemigo
        int x=getX();
        if(v>=12)
         {
-        if(isTouching(Warrior.class)&& yW>500 && yW<550)
+        if(isTouching(Warrior.class))
         {
           spriteAtacar(attkX,attkY,6);
           if(color == Color.BLACK)
@@ -91,7 +91,7 @@ public class GraveLord extends Enemigo
          {          
           w.removeObject(this);
           w.removeEstado();
-          w.abrePortal();
+          Greenfoot.stop();
          }
         } 
         

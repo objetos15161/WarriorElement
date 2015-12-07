@@ -122,9 +122,10 @@ public class ElementWorld extends SWorld
     public void nivel3()
     {
         removeObjects(getObjects(Vida.class));
+        removeObjects(getObjects(Portal.class));
         removeObject(war);
         war=new Warrior(3);
-
+        
         int i;
         int x=1250;
 
@@ -156,7 +157,7 @@ public class ElementWorld extends SWorld
         addObject(new Pico(),650,585);
         addObject(new Pico(),3170,585); 
         
-        addObject(s,480,480,false);
+        addObject(s,300,480,false);
         
         
 
@@ -175,6 +176,11 @@ public class ElementWorld extends SWorld
         {
           boss2.disminuyeVida(tipo);
         }
+        
+        if(numNivel==3)
+        {
+          boss3.disminuyeVida(tipo);
+        }
     }
     /**
      * Este método muestra la pantalla de Menú. Coloca
@@ -183,6 +189,7 @@ public class ElementWorld extends SWorld
      */
     public void menu()
     {
+        removeObjects(getObjects(null));
         setBackground(getImagen(0));
         addObject(jugar, 120, 550);
         addObject(ayuda, 409, 550);
@@ -399,7 +406,7 @@ public class ElementWorld extends SWorld
                                     {
                                         if(contEnem==17)
                                         {
-                                            addObject(s,3020,450);  
+                                            addObject(s,3650,480);  
                                             contEnem=18;
                                         }
                                         else
@@ -685,7 +692,7 @@ public class ElementWorld extends SWorld
         return (a);
     }
     /**
-     * Este método regresa un objeto de la clase Soldad.
+     * Este método regresa un objeto de la clase Soldado.
      * 
      * @return Soldado - Objeto creditos de la clase Boton.
      */
@@ -701,16 +708,26 @@ public class ElementWorld extends SWorld
     public void dibujaFlecha()
     {
         flecha = new Flecha();
-        addObject(flecha, war.getX(),war.getY(), false);
+        addObject(flecha, war.getX(),war.getY(),false);
         
     }
     
     /**
-     * 
+     * Este metodo regresa la coordenada actual en Y del Objeto Warrior.
      */
     public int coordenadasWarrior()
     {
         int coordY=war.getY();
         return(coordY);
     }
+    
+    /**
+     * Este metodo regresa la coordenada actual en X del Objeto Warrior.
+     */
+    public int coordenadasWarriorX()
+    {
+        int coordX=war.getX();
+        return(coordX);
+    }
+    
 }

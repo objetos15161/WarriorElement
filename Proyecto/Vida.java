@@ -22,6 +22,8 @@ public class Vida extends Actor
     /** color of this life */
     private Color color = Color.RED;
     
+    private SimpleTimer time = new SimpleTimer();
+    
   
     
  
@@ -60,10 +62,10 @@ public class Vida extends Actor
      */
     public void act() 
     { 
-         
          if(width<10)
-         gameOver();
-         
+         {
+           gameOver();
+         }
     }
     
     public void gameOver()
@@ -88,6 +90,8 @@ public class Vida extends Actor
         int y = worldHeight/2;
         
         world.addObject(newOver, x,y,false);
+        
+        
     }
     
     /**
