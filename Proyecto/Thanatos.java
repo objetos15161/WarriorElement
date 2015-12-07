@@ -2,10 +2,11 @@ import greenfoot.*;
 import java.awt.Color;
 
 /**
- * Write a description of class Thanatos here.
+ * Clase Thanatos (Jefe 1) que contiene las vidas y las condiciones de movimiento
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Raul Omar Negrete Montalvo
+ * @author Leonardo Ivan Hervert Morales 
+ * @version 10-Nov-2015
  */
 public class Thanatos extends Enemigo
 {
@@ -22,18 +23,14 @@ public class Thanatos extends Enemigo
     private int t=1;
     
     /**
-     * Act - do whatever the Thanatos wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor de Thanatos que inicializa sus tamaños de imagen y asigna sus vidas.
      */
     public Thanatos()
     {
         super("Enemigo/JefeCaminar0.png","Enemigo/JefeCaminar","Enemigo/JefeAtacar","Enemigo/JefeMorir");
         inicializaTam();
-        
         vida=new VidaBoss();
-
-    }
-    
+    }    
     /**
      * Este método iguala la variable mundo a el World de juego.
      *
@@ -41,13 +38,15 @@ public class Thanatos extends Enemigo
      */
     protected void addedToWorld(World world)
     {
-        
         w = (ElementWorld) world;
         w.estadoBoss();
         w.addObject(vida,606,43,false); 
-
     }
-    
+    /**
+     * metodo Act() donde revisa si esta tocando al guerrero y
+     * si esta tocando al guerrero disminuye su vida correspondiendo
+     * a la armadura que lleva puesta. 
+     */
     public void act() 
     {
        Color color=vida.dimeElemento();
@@ -67,19 +66,16 @@ public class Thanatos extends Enemigo
           {
             w.disminuyeVida(3);  
           }
-        
         }
         else
          {
           spriteCaminar(tamX,tamY,7);
           checkLimit(450);
          }        
-        
        }
        else
        {
-        setLocation(x+50,450);
-        
+        setLocation(x+50,450);       
         if(t==1)
         {
          t=2;
@@ -87,8 +83,7 @@ public class Thanatos extends Enemigo
          time.mark();
         }
          else
-        {
-            
+        {   
              if(t==2 && time.millisElapsed()>400)
          {          
           w.removeObject(this);
@@ -96,21 +91,13 @@ public class Thanatos extends Enemigo
           w.abrePortal();
          }
         } 
-        
-        spriteMorir(killX,killY,4);
-                       
+        spriteMorir(killX,killY,4);              
       }
     }
-    
-    /*public void checkLimit()
-    {
-     int x=getX();
-     if(x<=50)
-     {
-         setLocation(750,450);
-     }
-    }*/
-    
+     /**
+     * Disminuye la vida de Arania en 1 cada vez que es golpeada.
+     * Depende de que tipo de elemento lo golpe.
+     */
     public void disminuyeVida(int tipo)
     {
         vida.disminuyeVida(tipo);
@@ -158,9 +145,5 @@ public class Thanatos extends Enemigo
         killY[2]=101;
         killY[3]=89;
         killY[4]=69;
-        
-        
-        
-        
     }
 }

@@ -2,10 +2,11 @@ import greenfoot.*;
 import java.awt.Color;
 
 /**
- * Write a description of class Titan here.
+ * Clase Titan (Jefe 2) que contiene las vidas y las condiciones de movimiento
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Raul Omar Negrete Montalvo
+ * @author Leonardo Ivan Hervert Morales 
+ * @version 10-Nov-2015
  */
 public class Titan extends Enemigo
 {
@@ -15,12 +16,10 @@ public class Titan extends Enemigo
     private int[] attkY = new int[8];
     private int[] killX = new int[9];
     private int[] killY = new int[9];
-    
     private ElementWorld w;
     private VidaBoss vida;
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
-    
     /**
      * Constructor del jefe de lava, donde se asignan los nombres de tus imagenes
      * y la inicializacion de sus imagenes.
@@ -28,26 +27,24 @@ public class Titan extends Enemigo
     public Titan()
     {
         super("Enemigo/JefeLavaCaminar0.png","Enemigo/JefeLavaCaminar","Enemigo/JefeLavaAtacar","Enemigo/JefeLavaMorir");
-        inicializaTam();
-        
+        inicializaTam();        
         vida=new VidaBoss();
-
     }
-    
     /**
      * Este método iguala la variable mundo a el World de juego.
-     *
      *@param World Variable que representa el mundo del proyecto. 
      */
     protected void addedToWorld(World world)
     {
-        
         w = (ElementWorld) world;
         w.estadoBoss();
         w.addObject(vida,606,43,false); 
-
     }
-    
+     /**
+     * metodo Act() donde revisa si esta tocando al guerrero y
+     * si esta tocando al guerrero disminuye su vida correspondiendo
+     * a la armadura que lleva puesta. 
+     */
     public void act() 
     {
        Color color=vida.dimeElemento();
@@ -101,7 +98,10 @@ public class Titan extends Enemigo
                        
       }
     }
-    
+    /**
+     * Checa los limites en X del enemigo.
+     * Depende del mapa donde se encuentre.
+     */
     public void checkLimit()
     {
      int x=getX();
@@ -110,12 +110,14 @@ public class Titan extends Enemigo
          setLocation(750,450);
      }
     }
-    
+    /**
+     * Disminuye la vida de Arania en 1 cada vez que es golpeada.
+     * Depende de que tipo de elemento lo golpe.
+     */
     public void disminuyeVida(int tipo)
     {
         vida.disminuyeVida(tipo);
     }
-    
     /**
      * Inicializacion de los tamaños de los arreglos.
      */
@@ -144,7 +146,6 @@ public class Titan extends Enemigo
         attkX[6]=61;         attkY[6]=98;
         attkX[7]=61;         attkY[7]=99;        
 
-
         killX[0]=76;        killY[0]=109;
         killX[1]=76;        killY[1]=115;
         killX[2]=75;        killY[2]=110;
@@ -154,16 +155,7 @@ public class Titan extends Enemigo
         killX[6]=74;        killY[6]=77;
         killX[7]=74;        killY[7]=66;
         killX[8]=74;        killY[8]=66;
-        
 
-
-
-
-
-        
-        
-        
-        
     }
     
 }

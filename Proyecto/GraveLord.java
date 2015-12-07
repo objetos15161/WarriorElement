@@ -1,17 +1,14 @@
 import greenfoot.*;
 import java.awt.Color;
 /**
- * Write a description of class GraveLord here.
+ * Clase GraveLord(Jefe 3) que contiene las vidas y las condiciones de movimiento
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Raul Omar Negrete Montalvo
+ * @author Leonardo Ivan Hervert Morales 
+ * @version 10-Nov-2015
  */
 public class GraveLord extends Enemigo
 {
-    /**
-     * Act - do whatever the GraveLord wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private int[] tamX = new int[6];
     private int[] tamY = new int[6];
     private int[] attkX = new int[6];
@@ -23,7 +20,9 @@ public class GraveLord extends Enemigo
     private VidaBoss vida;
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
-    
+     /**
+     * Constructor de GraveLord que inicializa sus tamaños de imagen y asigna sus vidas.
+     */
     public GraveLord()
     {
         super("Enemigo/MuertoCaminar0.png","Enemigo/MuertoCaminar","Enemigo/MuertoAtacar","Enemigo/MuertoMorir");
@@ -32,10 +31,6 @@ public class GraveLord extends Enemigo
         vida=new VidaBoss();
 
     }
-    /**
-     * Act - do whatever the Titan wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     /**
      * Este método iguala la variable mundo a el World de juego.
      *
@@ -49,7 +44,11 @@ public class GraveLord extends Enemigo
         w.addObject(vida,606,43,false); 
 
     }
-    
+    /**
+     * metodo Act() donde revisa si esta tocando al guerrero y
+     * si esta tocando al guerrero disminuye su vida correspondiendo
+     * a la armadura que lleva puesta. 
+     */
     public void act() 
     {
        Color color=vida.dimeElemento();
@@ -100,20 +99,14 @@ public class GraveLord extends Enemigo
       }
     }
     
-    /*public void checkLimit()
-    {
-     int x=getX();
-     if(x<=50)
-     {
-         setLocation(750,450);
-     }
-    }*/
-    
+    /**
+     * Disminuye la vida de Arania en 1 cada vez que es golpeada.
+     * Depende de que tipo de elemento lo golpe.
+     */
     public void disminuyeVida(int tipo)
     {
         vida.disminuyeVida(tipo);
     }
-   
     /**
      * Inicializacion de los tamaños de los arreglos.
      */
@@ -133,9 +126,6 @@ public class GraveLord extends Enemigo
         attkX[4]=154;        attkY[4]=188;
         attkX[5]=128;        attkY[5]=184;
 
-        
-
-
         killX[0]=151;        killY[0]=208;
         killX[1]=158;        killY[1]=209;
         killX[2]=153;        killY[2]=214;
@@ -143,13 +133,5 @@ public class GraveLord extends Enemigo
         killX[4]=77;         killY[4]=191;
         killX[5]=80;         killY[5]=206;
 
-
-
-
-
-        
-        
-        
-        
     }   
 }

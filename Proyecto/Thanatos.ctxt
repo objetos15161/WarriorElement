@@ -1,15 +1,16 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Thanatos()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Thanatos\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment0.text=\r\n\ Constructor\ de\ Thanatos\ que\ inicializa\ sus\ tama\u00F1os\ de\ imagen\ y\ asigna\ sus\ vidas.\r\n
 comment1.params=world
 comment1.target=void\ addedToWorld(greenfoot.World)
 comment1.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ metodo\ Act()\ donde\ revisa\ si\ esta\ tocando\ al\ guerrero\ y\r\n\ si\ esta\ tocando\ al\ guerrero\ disminuye\ su\ vida\ correspondiendo\r\n\ a\ la\ armadura\ que\ lleva\ puesta.\ \r\n
 comment3.params=tipo
 comment3.target=void\ disminuyeVida(int)
-comment3.text=public\ void\ checkLimit()\r\n\ \ \ \ {\r\n\ \ \ \ \ int\ x\=getX();\r\n\ \ \ \ \ if(x<\=50)\r\n\ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ setLocation(750,450);\r\n\ \ \ \ \ }\r\n}
+comment3.text=\r\n\ Disminuye\ la\ vida\ de\ Arania\ en\ 1\ cada\ vez\ que\ es\ golpeada.\r\n\ Depende\ de\ que\ tipo\ de\ elemento\ lo\ golpe.\r\n
 comment4.params=
 comment4.target=void\ inicializaTam()
 comment4.text=\r\n\ Inicializacion\ de\ los\ tama\u00F1os\ de\ los\ arreglos.\r\n

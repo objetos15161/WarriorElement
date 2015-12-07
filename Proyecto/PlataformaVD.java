@@ -1,4 +1,4 @@
-import greenfoot.*;
+    import greenfoot.*;
 
 /**
  * Clase simple que representa a una plataforma con movimiento vertical

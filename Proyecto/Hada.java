@@ -1,12 +1,12 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Hada here.
+ * Clase Hada que contiene las vidas y las condiciones de movimiento
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Raul Omar Negrete Montalvo
+ * @author Leonardo Ivan Hervert Morales 
+ * @version 10-Nov-2015
  */
-
 public class Hada extends Enemigo
 {
     private int[] tamX = new int[8];
@@ -21,8 +21,7 @@ public class Hada extends Enemigo
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
     /**
-     * Act - do whatever the Hada wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor con los nombres de los archivos del Enemigo Hada.
      */
     public Hada()
     {
@@ -31,7 +30,11 @@ public class Hada extends Enemigo
         inicializaTam();
 
     }
-    
+     /**
+     * metodo Act() donde revisa si esta tocando al guerrero y
+     * si esta tocando al guerrero disminuye su vida correspondiendo
+     * a la armadura que lleva puesta. 
+     */
     public void act() 
     {
         int x=getX();
@@ -59,17 +62,9 @@ public class Hada extends Enemigo
       }
     }
     
-    /*public void checkLimit()
-    {
-     int x=getX();
-     if(x<=50)
-     {
-         setLocation(750,450);
-     }
-    }*/
-    
-   
-    
+    /**
+     * Disminuye la vida de Arania en 1 cada vez que es golpeada.
+     */
      public void disminuyeVida()
     {
       vida--;

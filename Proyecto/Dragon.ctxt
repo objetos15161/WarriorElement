@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Dragon()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Dragon\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment0.text=\r\n\ Constructor\ con\ los\ nombres\ de\ los\ archivos\ del\ Enemigo\ Arania.\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ metodo\ Act()\ donde\ revisa\ si\ esta\ tocando\ al\ guerrero\ y\r\n\ si\ esta\ tocando\ al\ guerrero\ disminuye\ su\ vida\ correspondiendo\r\n\ a\ la\ armadura\ que\ lleva\ puesta.\ \r\n
 comment2.params=
 comment2.target=void\ disminuyeVida()
+comment2.text=\r\n\ Disminuye\ la\ vida\ de\ Arania\ en\ 1\ cada\ vez\ que\ es\ golpeada.\r\n\ \r\n
 comment3.params=
 comment3.target=void\ inicializaTam()
 comment3.text=\r\n\ Inicializacion\ de\ los\ tama\u00F1os\ de\ los\ arreglos.\r\n

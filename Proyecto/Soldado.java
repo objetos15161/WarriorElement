@@ -1,27 +1,27 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Soldado here.
+ * Clase Soldado que contiene las vidas y las condiciones de movimiento
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Raul Omar Negrete Montalvo
+ * @author Leonardo Ivan Hervert Morales 
+ * @version 10-Nov-2015
  */
 public class Soldado extends Enemigo
 {
-    private int[] tamX = new int[8];
-    private int[] tamY = new int[8];
-    private int[] attkX = new int[6];
-    private int[] attkY = new int[6];
-    private int[] killX = new int[8];
-    private int[] killY = new int[8];
+    private int[] tamX = new int[8];/*tamanio del arreglo cuando camina el jugador en X*/
+    private int[] tamY = new int[8];/*tamanio del arreglo cuando camina el jugador en Y*/
+    private int[] attkX = new int[6];/*tamanio del arreglo cuando ataque el jugador en X*/
+    private int[] attkY = new int[6];/*tamanio del arreglo cuando ataque el jugador en Y*/
+    private int[] killX = new int[8];/*tamanio del arreglo cuando muere el jugador en X*/
+    private int[] killY = new int[8];/*tamanio del arreglo cuando muere el jugador en Y*/
     
     private int vida=30;
     private ElementWorld w;
     private SimpleTimer time = new SimpleTimer();
     private int t=1;
     /**
-     * Act - do whatever the Soldado wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor con los nombres de los archivos del Enemigo Arania.
      */
     public Soldado()
     {
@@ -29,7 +29,11 @@ public class Soldado extends Enemigo
         inicializaTam();
 
     }
-    
+     /**
+     * metodo Act() donde revisa si esta tocando al guerrero y
+     * si esta tocando al guerrero disminuye su vida correspondiendo
+     * a la armadura que lleva puesta. 
+     */
     public void act() 
     {
         int x=getX();
@@ -68,7 +72,9 @@ public class Soldado extends Enemigo
         w.removeObject(this);              
       }
     }
-    
+     /**
+     * Disminuye la vida de Arania en 1 cada vez que es golpeada.
+     */
      public void disminuyeVida()
     {
       vida--;

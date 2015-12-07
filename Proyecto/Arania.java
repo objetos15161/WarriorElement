@@ -1,20 +1,20 @@
-import greenfoot.*;
+    import greenfoot.*;
 
 /**
- * Write a description of class Arania here.
+ * Clase Arania que contiene las vidas y las condiciones de movimiento
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Raul Omar Negrete Montalvo
+ * @author Leonardo Ivan Hervert Morales 
+ * @version 10-Nov-2015
  */
 public class Arania extends Enemigo
 {
-    private int[] tamX = new int[3];
-    private int[] tamY = new int[3];
-    private int[] attkX = new int[3];
-    private int[] attkY = new int[3];
-    private int[] killX = new int[4];
-    private int[] killY = new int[4];
-    
+    private int[] tamX = new int[3]; /*tamanio del arreglo cuando camina el jugador en X*/
+    private int[] tamY = new int[3]; /*tamanio del arreglo cuando camina el jugador en Y*/
+    private int[] attkX = new int[3];/*tamanio del arreglo cuando ataque el jugador en X*/
+    private int[] attkY = new int[3];/*tamanio del arreglo cuando ataque el jugador en Y*/
+    private int[] killX = new int[4];/*tamanio del arreglo cuando muere el jugador en X*/
+    private int[] killY = new int[4];/*tamanio del arreglo cuando muere el jugador en Y*/
     private int vida=20;
     private ElementWorld w;
     private SimpleTimer time = new SimpleTimer();
@@ -30,7 +30,7 @@ public class Arania extends Enemigo
     }
     /**
      * metodo Act() donde revisa si esta tocando al guerrero y
-     * ss esta tocando al guerrero disminuye su vida correspondiendo
+     * si esta tocando al guerrero disminuye su vida correspondiendo
      * a la armadura que lleva puesta. 
      */
     public void act() 
@@ -61,7 +61,7 @@ public class Arania extends Enemigo
     }
     
     /**
-     * Disminuye la vida de Arania.
+     * Disminuye la vida de Arania en 1 cada vez que es golpeada.
      */
     public void disminuyeVida()
     {
