@@ -118,6 +118,10 @@ public class Vida extends Actor
                      
      }
      
+     
+     /**
+      * Desplaza la barra a la derecha.
+      */
      public void coordenada()
     {
         move(-1);

@@ -16,6 +16,7 @@ comment12.target=void\ checkTouch(int)
 comment12.text=\r\n\ Envia\ mensajes\ a\ la\ clase\ Vida\ para\ modificar\ su\ valor\ segun\ el\ tipo\ de\ elemento.\r\n\ @param\ tipo\ Entero\ que\ representa\ un\ elemento.\r\n
 comment13.params=clss
 comment13.target=boolean\ canSee(java.lang.Class)
+comment13.text=\r\n\ Permite\ conocer\ si\ warrior\ puede\ ver\ a\ un\ objeto\ de\ otra\ clase.\r\n\ @return\ actor\ que\ se\ encuentre\ mas\ cerca.\r\n
 comment14.params=
 comment14.target=void\ tryToKill()
 comment14.text=\r\n\ Envia\ mensajes\ al\ enemigo\ que\ se\ esta\ atacando\ para\ disminuir\ su\ vida.\r\n

@@ -16,6 +16,7 @@ comment4.target=void\ disminuyeVida(int)
 comment4.text=\r\n\ Cambia\ el\ tamano\ de\ barra\ de\ vida\ \r\n
 comment5.params=
 comment5.target=void\ coordenada()
+comment5.text=\r\n\ Desplaza\ la\ barra\ hacia\ la\ izquierda.\r\n
 comment6.params=
 comment6.target=void\ checkTime()
 comment6.text=\r\n\ Cambia\ el\ color\ de\ la\ barra\ de\ vida\ cada\ 5\ segundos.\r\n

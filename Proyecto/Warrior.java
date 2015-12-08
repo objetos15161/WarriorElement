@@ -441,6 +441,10 @@ public class Warrior extends Actor
         }
     }
             
+    /**
+     * Permite conocer si warrior puede ver a un objeto de otra clase.
+     * @return actor que se encuentre mas cerca.
+     */
     public boolean canSee(Class clss)
     {
         Actor actor = getOneObjectAtOffset(0, 0, clss);

@@ -117,6 +117,9 @@ public class VidaBoss extends Actor
                      
      }
      
+     /**
+      * Desplaza la barra hacia la izquierda.
+      */
      public void coordenada()
     {
         move(2);

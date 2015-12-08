@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class ElementWorld extends SWorld
 {
     //Variables de los distintos botones que se usan durante el juego.
-    private Boton jugar, ayuda, creditos, regresar,inventario,armAgua,armFuego,armTierra,armViento,vidaBoss;
+    private Boton jugar, ayuda, creditos, regresar,inventario,armAgua,armFuego,armTierra,armViento,vidaBoss,win;
     
     private Cursor cursor;
     private LinkedList <GreenfootImage> imagenes;
@@ -53,6 +53,7 @@ public class ElementWorld extends SWorld
         imagenes.add(new GreenfootImage("0viento.png"));        //11
         imagenes.add(new GreenfootImage("0fuego.png"));         //12
         imagenes.add(new GreenfootImage("barraVidaJefe.png"));  //13
+        imagenes.add(new GreenfootImage("winner.png"));         //14
 
         jugar = new Boton(getImagen(3));
         ayuda = new Boton(getImagen(4));
@@ -66,6 +67,7 @@ public class ElementWorld extends SWorld
         armTierra = new Boton(getImagen(10));
         armViento = new Boton(getImagen(11));
         armFuego = new Boton(getImagen(12));
+        win = new Boton(getImagen(14));
 
         menu();
 
@@ -125,7 +127,7 @@ public class ElementWorld extends SWorld
         removeObjects(getObjects(Portal.class));
         removeObject(war);
         war=new Warrior(3);
-        
+                        
         int i;
         int x=1250;
 
@@ -191,7 +193,7 @@ public class ElementWorld extends SWorld
      */
     public void menu()
     {
-        removeObjects(getObjects(null));
+        
         setBackground(getImagen(0));
         addObject(jugar, 120, 550);
         addObject(ayuda, 409, 550);
@@ -210,7 +212,7 @@ public class ElementWorld extends SWorld
         super.act();
         seleccionar();
         seleccionaArmadura();
-        //checkEnemigos();
+        
         if(numNivel==1)
         {
             if(numNivel>0 && war.getY()<450)
@@ -737,6 +739,16 @@ public class ElementWorld extends SWorld
     {
         int coordX=war.getX();
         return(coordX);
+    }
+    
+    /**
+     * Se encarga de agregar al mundo unaimagen de ganador.
+     */
+    public void createWin()
+    {
+        removeObjects(getObjects(null));
+        addObject(win , 400,300);
+        Greenfoot.stop();
     }
     
 }

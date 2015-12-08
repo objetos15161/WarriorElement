@@ -90,7 +90,7 @@ public class GraveLord extends Enemigo
          {          
           w.removeObject(this);
           w.removeEstado();
-          Greenfoot.stop();
+          w.createWin();
          }
         } 
         
